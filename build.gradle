@@ -1,0 +1,50 @@
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile "org.slf4j:slf4j-api:$project.version_slf4j"
+        compile "org.apache.logging.log4j:log4j-slf4j-impl:$project.version_log4j"
+        compile "org.apache.logging.log4j:log4j-api:$project.version_log4j"
+        compile "org.apache.logging.log4j:log4j-core:$project.version_log4j"
+
+        testCompile "junit:junit:$project.version_junit"
+    }
+
+    clean {
+        delete 'bin'
+    }
+}
+
+project(':fitrepair-utils') {
+    dependencies {
+    }
+}
+
+project(':fitrepair-main') {
+    dependencies {
+        compile project(':fitrepair-utils')
+    }
+
+    jar {
+        manifest {
+            attributes 'Implementation-Title': baseName
+            attributes 'Implementation-Version': version
+            attributes 'Main-Class': 'com.harry0000.fitrepair.FitRepair'
+        }
+        from {
+            configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+    }
+}

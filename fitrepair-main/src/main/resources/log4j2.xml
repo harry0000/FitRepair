@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" configDebug="true">
+  <Properties>
+    <Property name="pattern">%d{HH:mm:ss.SSS} [%t] %-5level %logger{1.} - %msg%n</Property>
+  </Properties>
+  <Appenders>
+    <Console name="CONSOLE" target="SYSTEM_OUT">
+      <PatternLayout pattern="${pattern}"/>
+    </Console>
+    <RollingFile name="FILE" fileName="FitRepair.log" filePattern="FitRepair-%d{yyyy-MM-dd_HHmmss}.log">
+      <PatternLayout pattern="${pattern}"/>
+      <Policies>
+        <OnStartupTriggeringPolicy />
+      </Policies>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <logger name="com.harry0000.fitrepair" level="INFO" additivity="false">
+      <AppenderRef ref="CONSOLE"/>
+      <AppenderRef ref="FILE"/>
+    </logger>
+    <Root level="WARN">
+      <AppenderRef ref="CONSOLE"/>
+    </Root>
+  </Loggers>
+</log4j:configuration>

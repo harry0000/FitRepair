@@ -1,0 +1,101 @@
+package com.harry0000.fit.message;
+
+import com.harry0000.fit.field.Field;
+import com.harry0000.fit.vo.BaseType;
+
+public class DeviceSettings extends DataMessage {
+
+    private enum Fields implements FieldProfile {
+        ACTIVE_TIME_ZONE(0, BaseType.UINT8),
+        UTC_OFFSET      (1, BaseType.UINT32),
+        TIME_ZONE_OFFSET(5, BaseType.SINT8);
+
+        private final byte definitionNumber;
+        private final BaseType baseType;
+
+        /**
+         * @param definitionNumber
+         * @param baseType
+         */
+        private Fields(final int definitionNumber,
+                       final BaseType baseType) {
+            this.definitionNumber = (byte) definitionNumber;
+            this.baseType = baseType;
+        }
+
+        /* (non-Javadoc)
+         * @see com.harry0000.Fit.message.FieldType#getDefinitionNumber()
+         */
+        @Override
+        public byte getDefinitionNumber() {
+            return definitionNumber;
+        }
+
+        /* (non-Javadoc)
+         * @see com.harry0000.Fit.message.FieldType#getBaseType()
+         */
+        @Override
+        public BaseType getBaseType() {
+            return baseType;
+        }
+    }
+
+    /**
+     * @param msg
+     */
+    public DeviceSettings(final DataMessage msg) {
+        super(msg);
+    }
+
+    /**
+     * @return
+     */
+    public Integer getActiveTimeZone() {
+        final Number value = getFieldToNumber(Fields.ACTIVE_TIME_ZONE);
+
+        return value != null ? value.intValue() : null;
+    }
+
+    /**
+     * @param activeTimeZone
+     */
+    public void setActiveTimeZone(final Integer activeTimeZone) {
+        final Field<?> f = getOrAddField(Fields.ACTIVE_TIME_ZONE);
+        f.setValue(activeTimeZone);
+    }
+
+    /**
+     * @return
+     */
+    public Long getUtcOffset() {
+        final Number value = getFieldToNumber(Fields.UTC_OFFSET);
+
+        return value != null ? value.longValue() : null;
+    }
+
+    /**
+     * @param utcOffset
+     */
+    public void setUtcOffset(final Long utcOffset) {
+        final Field<?> f = getOrAddField(Fields.UTC_OFFSET);
+        f.setValue(utcOffset);
+    }
+
+    /**
+     * @return
+     */
+    public Byte getTimeZoneOffset() {
+        final Number value = getFieldToNumber(Fields.TIME_ZONE_OFFSET);
+
+        return value != null ? value.byteValue() : null;
+    }
+
+    /**
+     * @param timeZoneOffset
+     */
+    public void setTimeZoneOffset(final Byte timeZoneOffset) {
+        final Field<?> f = getOrAddField(Fields.TIME_ZONE_OFFSET);
+        f.setValue(timeZoneOffset);
+    }
+
+}
