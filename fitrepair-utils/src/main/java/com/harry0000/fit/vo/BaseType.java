@@ -50,16 +50,16 @@ public enum BaseType {
                                           final ByteOrder byteOrder) {
         final byte[] value = new byte[size];
         if (dataType == DataType.NULL_TERMINATED) {
-            Arrays.fill(value, (byte) 0x00);
-        } else {
-            Arrays.fill(value, (byte) 0xFF);
+            return value;
+        }
 
-            if (dataType == DataType.SIGNED) {
-                final int offset = byteOrder == ByteOrder.BIG_ENDIAN ?
-                                       0 :
-                                       size - 1;
-                value[offset] = (byte) 0x7F;
-            }
+        Arrays.fill(value, (byte) 0xFF);
+
+        if (dataType == DataType.SIGNED) {
+            final int offset = byteOrder == ByteOrder.BIG_ENDIAN ?
+                                   0 :
+                                   size - 1;
+            value[offset] = (byte) 0x7F;
         }
 
         return value;
