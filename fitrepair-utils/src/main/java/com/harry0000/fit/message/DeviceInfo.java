@@ -6,7 +6,7 @@ import com.harry0000.fit.vo.FitMessage;
 
 public class DeviceInfo extends DataMessage {
 
-    private enum Fields implements FieldProfile {
+    public enum Fields implements FieldProfile {
         DEVICE_INDEX         (0,  BaseType.UINT8),
         DEVICE_TYPE          (1,  BaseType.UINT8),
         MANUFACTURER         (2,  BaseType.UINT16),

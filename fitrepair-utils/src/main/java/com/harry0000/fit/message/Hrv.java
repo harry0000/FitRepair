@@ -10,7 +10,38 @@ import com.harry0000.fit.vo.FitMessage;
 
 public class Hrv extends DataMessage {
 
-    private static final byte FIELD_TIME = 0;
+    public enum Fields implements FieldProfile {
+        FIELD_TIME(0, BaseType.UINT16);
+
+        private final byte definitionNumber;
+        private final BaseType baseType;
+
+        /**
+         * @param definitionNumber
+         * @param baseType
+         */
+        private Fields(final int definitionNumber,
+                       final BaseType baseType) {
+            this.definitionNumber = (byte) definitionNumber;
+            this.baseType = baseType;
+        }
+
+        /* (non-Javadoc)
+         * @see com.harry0000.Fit.message.FieldType#getDefinitionNumber()
+         */
+        @Override
+        public byte getDefinitionNumber() {
+            return definitionNumber;
+        }
+
+        /* (non-Javadoc)
+         * @see com.harry0000.Fit.message.FieldType#getBaseType()
+         */
+        @Override
+        public BaseType getBaseType() {
+            return baseType;
+        }
+    }
 
     /**
      * @param msg
@@ -31,7 +62,7 @@ public class Hrv extends DataMessage {
      * @return
      */
     public Integer getTime() {
-        final Number value = getFieldToNumber(FIELD_TIME);
+        final Number value = getFieldToNumber(Fields.FIELD_TIME);
 
         return value != null ? value.intValue() : null;
     }
@@ -40,7 +71,7 @@ public class Hrv extends DataMessage {
      * @param time
      */
     public void setTime(final Integer time) {
-        final Field<?> f = getOrAddField(FIELD_TIME, BaseType.UINT16);
+        final Field<?> f = getOrAddField(Fields.FIELD_TIME);
         f.setValue(time);
     }
 
@@ -49,7 +80,7 @@ public class Hrv extends DataMessage {
      * @return
      */
     public Integer getTime(final int index) {
-        final Field<?> field = getField(FIELD_TIME);
+        final Field<?> field = getField(Fields.FIELD_TIME);
         if (field == null) {
             return null;
         }
@@ -63,7 +94,7 @@ public class Hrv extends DataMessage {
      * @param time
      */
     public void setTime(final int index, final Integer time) {
-        final Field<?> f = getOrAddField(FIELD_TIME, BaseType.UINT16);
+        final Field<?> f = getOrAddField(Fields.FIELD_TIME);
         f.setValue(index, time);
     }
 
@@ -71,7 +102,7 @@ public class Hrv extends DataMessage {
      * @return
      */
     public List<Integer> getTimes() {
-        final Field<?> field = getField(FIELD_TIME);
+        final Field<?> field = getField(Fields.FIELD_TIME);
         if (field == null) {
             return Collections.emptyList();
         }
@@ -89,7 +120,7 @@ public class Hrv extends DataMessage {
      * @param times
      */
     public void setTimes(final List<Integer> times) {
-        final Field<?> f = getOrAddField(FIELD_TIME, BaseType.UINT16);
+        final Field<?> f = getOrAddField(Fields.FIELD_TIME);
         f.getValues().clear();
 
         for (final Integer time : times) {

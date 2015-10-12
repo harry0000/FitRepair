@@ -6,7 +6,7 @@ import com.harry0000.fit.vo.FitMessage;
 
 public class Event extends DataMessage {
 
-    private enum Fields implements FieldProfile {
+    public enum Fields implements FieldProfile {
         EVENT         (0,  BaseType.ENUM),
         EVENT_TYPE    (1,  BaseType.ENUM),
         DATA16        (2,  BaseType.UINT16),

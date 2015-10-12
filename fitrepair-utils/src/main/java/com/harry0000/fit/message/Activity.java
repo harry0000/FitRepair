@@ -6,7 +6,7 @@ import com.harry0000.fit.vo.FitMessage;
 
 public class Activity extends DataMessage {
 
-    private enum Fields implements FieldProfile {
+    public enum Fields implements FieldProfile {
         TOTAL_TIMER_TIME(0, BaseType.UINT32),
         NUM_SESSIONS    (1, BaseType.UINT16),
         ACTIVITY_TYPE   (2, BaseType.ENUM),

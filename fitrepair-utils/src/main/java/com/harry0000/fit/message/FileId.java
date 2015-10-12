@@ -6,7 +6,7 @@ import com.harry0000.fit.vo.FitMessage;
 
 public class FileId extends DataMessage {
 
-    private enum Fields implements FieldProfile {
+    public enum Fields implements FieldProfile {
         FILE_TYPE    (0, BaseType.ENUM),
         MANUFACTURER (1, BaseType.UINT16),
         PRODUCT      (2, BaseType.UINT16),

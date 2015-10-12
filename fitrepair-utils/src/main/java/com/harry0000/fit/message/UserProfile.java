@@ -7,7 +7,7 @@ import com.harry0000.fit.vo.BaseType;
 
 public class UserProfile extends DataMessage {
 
-    private enum Fields implements FieldProfile {
+    public enum Fields implements FieldProfile {
         FRIENDLY_NAME                 (0,  BaseType.STRING),
         GENDER                        (1,  BaseType.ENUM),
         AGE                           (2,  BaseType.UINT8),

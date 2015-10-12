@@ -59,7 +59,7 @@ public enum BaseType {
             final int offset = byteOrder == ByteOrder.BIG_ENDIAN ?
                                    0 :
                                    size - 1;
-            value[offset] = (byte) 0x7F;
+            value[offset] = 0x7F;
         }
 
         return value;

@@ -5,7 +5,7 @@ import com.harry0000.fit.vo.BaseType;
 
 public class DeviceSettings extends DataMessage {
 
-    private enum Fields implements FieldProfile {
+    public enum Fields implements FieldProfile {
         ACTIVE_TIME_ZONE(0, BaseType.UINT8),
         UTC_OFFSET      (1, BaseType.UINT32),
         TIME_ZONE_OFFSET(5, BaseType.SINT8);

@@ -6,7 +6,7 @@ import com.harry0000.fit.vo.FitMessage;
 
 public class Record extends DataMessage {
 
-    private enum Fields implements FieldProfile {
+    public enum Fields implements FieldProfile {
         POSITION_LAT                    (0,  BaseType.SINT32),
         POSITION_LONG                   (1,  BaseType.SINT32),
         ALTITUDE                        (2,  BaseType.UINT16),
