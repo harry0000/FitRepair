@@ -3,9 +3,6 @@ package com.harry0000.fit.field;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-
 import org.junit.Test;
 
 import com.harry0000.fit.field.FieldDefinition;
@@ -37,12 +34,7 @@ public class UInt32FieldTest {
 
     @Test
     public void setInvalidValueFieldIsInvalid() {
-        final long invalid = Integer.toUnsignedLong(
-                                 ByteBuffer.wrap(
-                                     field.getBaseType().getInvalidValue(ByteOrder.BIG_ENDIAN)
-                                 ).getInt()
-                             );
-        field.setValue(invalid);
+        field.setValue(BaseType.INVALID_UINT32);
         assertThat(field.isInvalid(), is(true));
     }
 

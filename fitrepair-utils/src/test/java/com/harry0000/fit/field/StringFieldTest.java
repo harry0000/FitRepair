@@ -3,9 +3,6 @@ package com.harry0000.fit.field;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
-import java.nio.ByteOrder;
-import java.nio.charset.StandardCharsets;
-
 import org.junit.Test;
 
 import com.harry0000.fit.field.FieldDefinition;
@@ -90,7 +87,7 @@ public class StringFieldTest {
         final byte[] bytes = new byte[]{(byte) 0xE0, (byte) 0x80, (byte) 0xAF};
         definition.setSize((byte) 10);
 
-        field.setValues(bytes, ByteOrder.BIG_ENDIAN);
+        field.setValues(bytes, null);
 
         assertThat(field.toString(), is("���\0"));
     }
@@ -121,12 +118,7 @@ public class StringFieldTest {
 
     @Test
     public void setInvalidValueFieldIsInvalid() {
-        final String invalid = new String(
-                                   field.getBaseType().getInvalidValue(ByteOrder.BIG_ENDIAN),
-                                   StandardCharsets.UTF_8
-                               );
-
-        field.setValue(invalid);
+        field.setValue("\0");
 
         assertThat(field.isInvalid(), is(true));
     }

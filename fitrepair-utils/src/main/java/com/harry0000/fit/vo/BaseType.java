@@ -65,6 +65,20 @@ public enum BaseType {
         return value;
     }
 
+    public static int    INVALID_ENUM    = 0xFF;
+    public static byte   INVALID_SINT8   = 0x7F;
+    public static int    INVALID_UINT8   = 0xFF;  
+    public static short  INVALID_SINT16  = 0x7FFF; 
+    public static int    INVALID_UINT16  = 0xFFFF;
+    public static int    INVALID_SINT32  = 0x7FFFFFFF;
+    public static long   INVALID_UINT32  = 0xFFFFFFFFL; 
+    public static float  INVALID_FLOAT32 = Float.intBitsToFloat(0xFFFFFFFF);
+    public static double INVALID_FLOAT64 = Double.longBitsToDouble(0xFFFFFFFFFFFFFFFFL);
+    public static int    INVALID_UINT8Z  = 0x00; 
+    public static int    INVALID_UINT16Z = 0x00;
+    public static long   INVALID_UINT32Z = 0x00L;
+    public static int    INVALID_BYTE    = 0xFF;
+
     /**
      * @param type
      * @return

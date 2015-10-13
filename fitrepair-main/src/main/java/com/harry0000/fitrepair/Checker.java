@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import com.harry0000.fit.Reader;
 import com.harry0000.fit.message.Record;
+import com.harry0000.fit.vo.BaseType;
 import com.harry0000.fit.vo.FileType;
 
 public class Checker {
@@ -48,7 +49,7 @@ public class Checker {
         reader.getDispatcher().setRecordListener(
             (defMsg, msg) -> {
                 final Integer power = msg.getPower();
-                if (power == null || power.equals(0xFFFF)) {
+                if (power == null || power.equals(BaseType.INVALID_UINT16)) {
                     increase = 0;
                     lastMsg = msg;
                     return;

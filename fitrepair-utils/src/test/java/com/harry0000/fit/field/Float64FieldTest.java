@@ -3,9 +3,6 @@ package com.harry0000.fit.field;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-
 import org.junit.Test;
 
 import com.harry0000.fit.field.FieldDefinition;
@@ -37,10 +34,7 @@ public class Float64FieldTest {
 
     @Test
     public void setInvalidValueFieldIsInvalid() {
-        final double invalid = ByteBuffer.wrap(
-                                   field.getBaseType().getInvalidValue(ByteOrder.BIG_ENDIAN)
-                               ).getDouble();
-        field.setValue(invalid);
+        field.setValue(BaseType.INVALID_FLOAT64);
         assertThat(field.isInvalid(), is(true));
     }
 
