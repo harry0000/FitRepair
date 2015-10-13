@@ -56,8 +56,8 @@ public class Checker {
 
                 if (increase != 0 && power != 0) {
                     // Calc dropped power.
-                    final int doropped = (power - lastMsg.getPower()) * -1;
-                    if (doropped > increase * THRESHOLD) {
+                    final int dropped = lastMsg.getPower() - power;
+                    if (dropped > increase * THRESHOLD) {
                         // Sharp drop.
                         logger.info("Timestamp: {}", new Date(lastMsg.getTimestamp()));
                         logger.info("Power    : 0 -> {} -> {}", lastMsg.getPower(),   power);
