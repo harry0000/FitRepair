@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -19,6 +20,7 @@ import com.harry0000.fit.CRC;
 import com.harry0000.fit.Reader;
 import com.harry0000.fit.Writer;
 import com.harry0000.fit.message.Record;
+import com.harry0000.fit.vo.BaseType;
 import com.harry0000.fit.vo.FileType;
 
 public class Repair {
@@ -113,7 +115,7 @@ public class Repair {
             reader.getDispatcher().setRecordListener(
                 (defMsg, msg) -> {
                     final Integer value = msg.getPower();
-                    if (value != null && value != 0xFFFF) {
+                    if (value != null && !value.equals(BaseType.INVALID_UINT16)) {
                         powerDataCount++;
 
                         final int power = value.intValue();
@@ -127,8 +129,18 @@ public class Repair {
                         }
                     }
 
-                    accumlated = msg.getAccumulatedPower() - accumlatedInvalid;
-                    msg.setAccumulatedPower(accumlated);
+                    final Long ap = msg.getAccumulatedPower();
+                    if (ap != null && !ap.equals(BaseType.INVALID_UINT32)) {
+                        accumlated = ap - accumlatedInvalid;
+                        msg.setAccumulatedPower(accumlated);
+                    } else {
+                        logger.warn(
+                            "AccumulatedPower is invalid. timestamp: {}, accumulatedPower: {}, power: {}",
+                            new Date(msg.getTimestamp()),
+                            ap,
+                            value
+                        );
+                    }
 
                     try {
                         Writer.writeDataMessage(defMsg, msg, out);
