@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" configDebug="true">
   <Properties>
-    <Property name="pattern">%d{HH:mm:ss.SSS} [%t] %-5level %logger{1.} - %msg%n</Property>
+    <Property name="pattern">%d{HH:mm:ss.SSS} [%t] %-5level %logger{1.} - %msg%ex%n</Property>
   </Properties>
   <Appenders>
     <Console name="CONSOLE" target="SYSTEM_OUT">
@@ -15,12 +15,13 @@
     </RollingFile>
   </Appenders>
   <Loggers>
-    <logger name="com.harry0000.fitrepair" level="INFO" additivity="false">
+    <logger name="com.harry0000.fit" level="WARN" additivity="false">
       <AppenderRef ref="CONSOLE"/>
       <AppenderRef ref="FILE"/>
     </logger>
-    <Root level="WARN">
+    <Root level="INFO">
       <AppenderRef ref="CONSOLE"/>
+      <AppenderRef ref="FILE"/>
     </Root>
   </Loggers>
 </log4j:configuration>

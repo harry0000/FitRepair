@@ -211,6 +211,9 @@ public class Repair {
         } catch (final IOException e) {
             logger.error("Error while reading fit file.", e);
             return false;
+        } catch (final Exception e) {
+            logger.error("Error while repairing fit file.", e);
+            return false;
         } finally {
             maxPower = 0;
             powerDataCount = 0L;
