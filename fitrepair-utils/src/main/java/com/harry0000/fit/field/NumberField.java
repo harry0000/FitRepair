@@ -108,7 +108,7 @@ abstract class NumberField<T extends Number> extends AbstractField<T> {
     public boolean isInvalid(final int index) {
         final T value = getValue(index);
         return value == null ||
-               value.equals(convertValue(ByteBuffer.wrap(getBaseType().getInvalidValue(ByteOrder.BIG_ENDIAN))));
+               value.equals(convertValue(ByteBuffer.wrap(getBaseType().getInvalid(ByteOrder.BIG_ENDIAN))));
     }
 
     /**

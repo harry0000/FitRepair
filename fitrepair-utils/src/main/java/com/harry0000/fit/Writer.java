@@ -118,7 +118,7 @@ public class Writer {
                 final int elements = field.getSize() / baseType.getSize();
                 for (int i = 0; i < elements; i++) {
                     if (field.isInvalid(i)) {
-                        out.write(baseType.getInvalidValue(bo));
+                        out.write(baseType.getInvalid(bo));
                         continue;
                     }
 

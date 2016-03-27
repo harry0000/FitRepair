@@ -8,20 +8,34 @@ import java.util.Map;
 
 public enum BaseType {
 
-    ENUM   (0x00, 1, DataType.UNSIGNED),
-    SINT8  (0x01, 1, DataType.SIGNED),
-    UINT8  (0x02, 1, DataType.UNSIGNED),
-    SINT16 (0x83, 2, DataType.SIGNED),
-    UINT16 (0x84, 2, DataType.UNSIGNED),
-    SINT32 (0x85, 4, DataType.SIGNED),
-    UINT32 (0x86, 4, DataType.UNSIGNED),
-    STRING (0x07, 1, DataType.NULL_TERMINATED),
-    FLOAT32(0x88, 4, DataType.UNSIGNED),
-    FLOAT64(0x89, 8, DataType.UNSIGNED),
-    UINT8Z (0x0A, 1, DataType.NULL_TERMINATED),
-    UINT16Z(0x8B, 2, DataType.NULL_TERMINATED),
-    UINT32Z(0x8C, 4, DataType.NULL_TERMINATED),
-    BYTE   (0x0D, 1, DataType.UNSIGNED);
+    ENUM   (0x00, 1, DataType.UNSIGNED,        0xFF),
+    SINT8  (0x01, 1, DataType.SIGNED,          (byte) 0x7F),
+    UINT8  (0x02, 1, DataType.UNSIGNED,        0xFF),
+    SINT16 (0x83, 2, DataType.SIGNED,          (short) 0x7FFF),
+    UINT16 (0x84, 2, DataType.UNSIGNED,        0xFFFF),
+    SINT32 (0x85, 4, DataType.SIGNED,          0x7FFFFFFF),
+    UINT32 (0x86, 4, DataType.UNSIGNED,        0xFFFFFFFFL),
+    STRING (0x07, 1, DataType.NULL_TERMINATED, (byte)0x00),
+    FLOAT32(0x88, 4, DataType.UNSIGNED,        Float.intBitsToFloat(0xFFFFFFFF)),
+    FLOAT64(0x89, 8, DataType.UNSIGNED,        Double.longBitsToDouble(0xFFFFFFFFFFFFFFFFL)),
+    UINT8Z (0x0A, 1, DataType.NULL_TERMINATED, 0x00),
+    UINT16Z(0x8B, 2, DataType.NULL_TERMINATED, 0x00),
+    UINT32Z(0x8C, 4, DataType.NULL_TERMINATED, 0x00L),
+    BYTE   (0x0D, 1, DataType.UNSIGNED,        0xFF);
+
+    public static int    INVALID_ENUM    = ENUM.getInvalid().intValue();
+    public static byte   INVALID_SINT8   = SINT8.getInvalid().byteValue();
+    public static int    INVALID_UINT8   = UINT8.getInvalid().intValue();
+    public static short  INVALID_SINT16  = SINT16.getInvalid().shortValue();
+    public static int    INVALID_UINT16  = UINT16.getInvalid().intValue();
+    public static int    INVALID_SINT32  = SINT32.getInvalid().intValue();
+    public static long   INVALID_UINT32  = UINT32.getInvalid().longValue();
+    public static float  INVALID_FLOAT32 = FLOAT32.getInvalid().floatValue();
+    public static double INVALID_FLOAT64 = FLOAT64.getInvalid().doubleValue();
+    public static int    INVALID_UINT8Z  = UINT8Z.getInvalid().intValue();
+    public static int    INVALID_UINT16Z = UINT16Z.getInvalid().intValue();
+    public static long   INVALID_UINT32Z = UINT32Z.getInvalid().longValue();
+    public static int    INVALID_BYTE    = BYTE.getInvalid().intValue();
 
     private enum DataType {
         SIGNED,
@@ -65,20 +79,6 @@ public enum BaseType {
         return value;
     }
 
-    public static int    INVALID_ENUM    = 0xFF;
-    public static byte   INVALID_SINT8   = 0x7F;
-    public static int    INVALID_UINT8   = 0xFF;  
-    public static short  INVALID_SINT16  = 0x7FFF; 
-    public static int    INVALID_UINT16  = 0xFFFF;
-    public static int    INVALID_SINT32  = 0x7FFFFFFF;
-    public static long   INVALID_UINT32  = 0xFFFFFFFFL; 
-    public static float  INVALID_FLOAT32 = Float.intBitsToFloat(0xFFFFFFFF);
-    public static double INVALID_FLOAT64 = Double.longBitsToDouble(0xFFFFFFFFFFFFFFFFL);
-    public static int    INVALID_UINT8Z  = 0x00; 
-    public static int    INVALID_UINT16Z = 0x00;
-    public static long   INVALID_UINT32Z = 0x00L;
-    public static int    INVALID_BYTE    = 0xFF;
-
     /**
      * @param type
      * @return
@@ -93,18 +93,22 @@ public enum BaseType {
     private final byte type;
     private final int size;
     private final DataType dataType;
+    private final Number invalid;
 
     /**
      * @param type
      * @param size
      * @param dataType
+     * @param invalid
      */
     private BaseType(final int type,
                      final int size,
-                     final DataType dataType) {
+                     final DataType dataType,
+                     final Number invalid) {
         this.type = (byte) type;
         this.size = size;
         this.dataType = dataType;
+        this.invalid = invalid;
     }
 
     /**
@@ -122,10 +126,17 @@ public enum BaseType {
     }
 
     /**
+     * @return the invalid
+     */
+    public Number getInvalid() {
+        return invalid;
+    }
+
+    /**
      * @param byteOrder
      * @return
      */
-    public byte[] getInvalidValue(final ByteOrder byteOrder) {
+    public byte[] getInvalid(final ByteOrder byteOrder) {
         return getInvalidValue(size, dataType, byteOrder);
     }
 

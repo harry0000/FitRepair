@@ -14,11 +14,11 @@ import org.slf4j.LoggerFactory;
 
 import com.harry0000.fit.Reader;
 import com.harry0000.fit.message.Record;
-import com.harry0000.fit.vo.BaseType;
 import com.harry0000.fit.vo.FileType;
 
 public class Checker {
     private static final Logger logger = LoggerFactory.getLogger(Checker.class);
+    private static final int INVALID_POWER = Record.Fields.POWER.getBaseType().getInvalid().intValue();
     private static final double THRESHOLD = 0.5D;
 
     private Record lastMsg;
@@ -49,7 +49,7 @@ public class Checker {
         reader.getDispatcher().setRecordListener(
             (defMsg, msg) -> {
                 final Integer power = msg.getPower();
-                if (power == null || power.equals(BaseType.INVALID_UINT16)) {
+                if (power == null || power == INVALID_POWER) {
                     increase = 0;
                     lastMsg = msg;
                     return;
