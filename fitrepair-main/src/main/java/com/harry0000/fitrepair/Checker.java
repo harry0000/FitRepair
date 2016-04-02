@@ -1,5 +1,7 @@
 package com.harry0000.fitrepair;
 
+import static com.harry0000.fit.message.Record.Fields.POWER;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,7 +20,6 @@ import com.harry0000.fit.vo.FileType;
 
 public class Checker {
     private static final Logger logger = LoggerFactory.getLogger(Checker.class);
-    private static final int INVALID_POWER = Record.Fields.POWER.getBaseType().getInvalid().intValue();
     private static final double THRESHOLD = 0.5D;
 
     private Record lastMsg;
@@ -49,7 +50,7 @@ public class Checker {
         reader.getDispatcher().setRecordListener(
             (defMsg, msg) -> {
                 final Integer power = msg.getPower();
-                if (power == null || power == INVALID_POWER) {
+                if (power == null || power == POWER.getInvalid().intValue()) {
                     increase = 0;
                     lastMsg = msg;
                     return;

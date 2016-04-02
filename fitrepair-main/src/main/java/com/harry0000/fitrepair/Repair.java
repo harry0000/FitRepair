@@ -1,5 +1,8 @@
 package com.harry0000.fitrepair;
 
+import static com.harry0000.fit.message.Record.Fields.ACCUMULATED_POWER;
+import static com.harry0000.fit.message.Record.Fields.POWER;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -20,7 +23,6 @@ import com.harry0000.fit.CRC;
 import com.harry0000.fit.Reader;
 import com.harry0000.fit.Writer;
 import com.harry0000.fit.message.Record;
-import com.harry0000.fit.vo.BaseType;
 import com.harry0000.fit.vo.FileType;
 
 public class Repair {
@@ -115,7 +117,7 @@ public class Repair {
             reader.getDispatcher().setRecordListener(
                 (defMsg, msg) -> {
                     final Integer value = msg.getPower();
-                    if (value != null && !value.equals(BaseType.INVALID_UINT16)) {
+                    if (value != null && value != POWER.getInvalid().intValue()) {
                         powerDataCount++;
 
                         final int power = value.intValue();
@@ -130,7 +132,7 @@ public class Repair {
                     }
 
                     final Long ap = msg.getAccumulatedPower();
-                    if (ap != null && !ap.equals(BaseType.INVALID_UINT32)) {
+                    if (ap != null && ap != ACCUMULATED_POWER.getInvalid().longValue()) {
                         accumlated = ap - accumlatedInvalid;
                         msg.setAccumulatedPower(accumlated);
                     } else {

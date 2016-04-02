@@ -14,4 +14,12 @@ interface FieldProfile {
      */
     BaseType getBaseType();
 
+    /**
+     * @return
+     * @see BaseType#getInvalid()
+     */
+    default Number getInvalid() {
+        return getBaseType().getInvalid();
+    }
+
 }
