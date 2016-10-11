@@ -116,11 +116,10 @@ public class Repair {
                 });
             reader.getDispatcher().setRecordListener(
                 (defMsg, msg) -> {
-                    final Integer value = msg.getPower();
-                    if (value != null && value != POWER.getInvalid().intValue()) {
+                    final Integer power = msg.getPower();
+                    if (power != null && power != POWER.getInvalid().intValue()) {
                         powerDataCount++;
 
-                        final int power = value.intValue();
                         if (targetTimestamps.remove(msg.getTimestamp())) {
                             // Repair power to 0 Watt.
                             msg.setPower(0);
@@ -140,7 +139,7 @@ public class Repair {
                             "AccumulatedPower is invalid. timestamp: {}, accumulatedPower: {}, power: {}",
                             new Date(msg.getTimestamp()),
                             ap,
-                            value
+                            power
                         );
                     }
 
@@ -240,8 +239,8 @@ public class Repair {
             while ((data = dest.read()) > -1) {
                 crc.update((byte) data);
             }
-            dest.write((int) (crc.getValue()        & 0xFF));
-            dest.write((int) ((crc.getValue() >> 8) & 0xFF));
+            dest.write(crc.getValue()        & 0xFF);
+            dest.write((crc.getValue() >> 8) & 0xFF);
         } catch (final IOException e) {
             logger.error("Error while writing CRC.", e);
             return false;
