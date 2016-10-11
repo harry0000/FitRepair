@@ -30,14 +30,14 @@ public class Repair {
 
     private int maxPower;
     private long powerDataCount;
-    /** accumlated power (exclude invalid power) */
-    private long accumlated;
-    /** last lap accumlated power */
-    private long lastAccumlated;
-    /** accumlated invalid power */
-    private long accumlatedInvalid;
-    /** last lap accumlated invalid power */
-    private long lastAccumlatedInvalid;
+    /** accumulated power (exclude invalid power) */
+    private long accumulated;
+    /** last lap accumulated power */
+    private long lastAccumulated;
+    /** accumulated invalid power */
+    private long accumulatedInvalid;
+    /** last lap accumulated invalid power */
+    private long lastAccumulatedInvalid;
 
     private List<Integer> lapMaxPower = new ArrayList<>();
     private List<Long> lapPowerDataCount = new ArrayList<>();
@@ -124,7 +124,7 @@ public class Repair {
                         if (targetTimestamps.remove(msg.getTimestamp())) {
                             // Repair power to 0 Watt.
                             msg.setPower(0);
-                            accumlatedInvalid += power;
+                            accumulatedInvalid += power;
                         } else {
                             // Update max power.
                             maxPower = Math.max(maxPower, power);
@@ -133,8 +133,8 @@ public class Repair {
 
                     final Long ap = msg.getAccumulatedPower();
                     if (ap != null && ap != ACCUMULATED_POWER.getInvalid().longValue()) {
-                        accumlated = ap - accumlatedInvalid;
-                        msg.setAccumulatedPower(accumlated);
+                        accumulated = ap - accumulatedInvalid;
+                        msg.setAccumulatedPower(accumulated);
                     } else {
                         logger.warn(
                             "AccumulatedPower is invalid. timestamp: {}, accumulatedPower: {}, power: {}",
@@ -153,7 +153,7 @@ public class Repair {
                 });
             reader.getDispatcher().setLapListener(
                 (defMsg, msg) -> {
-                    final long sumPower = accumlated - lastAccumlated;
+                    final long sumPower = accumulated - lastAccumulated;
                     final int avgPower = powerDataCount != 0 ?
                                              (int)Math.round((double)sumPower / powerDataCount) :
                                              0;
@@ -162,7 +162,7 @@ public class Repair {
 
                     logger.info("---   Lap   ---");
                     logger.info("Record Count    : {}", powerDataCount);
-                    logger.info("SumPower        : {} (-{})", sumPower, accumlatedInvalid - lastAccumlatedInvalid);
+                    logger.info("SumPower        : {} (-{})", sumPower, accumulatedInvalid - lastAccumulatedInvalid);
                     logger.info("AvgPower        : {}", msg.getAvgPower());
                     logger.info("MaxPower        : {}", msg.getMaxPower());
                     logger.info("NormalizedPower : {}", msg.getNormalizedPower());
@@ -177,8 +177,8 @@ public class Repair {
                     lapMaxPower.add(maxPower);
                     lapPowerDataCount.add(powerDataCount);
 
-                    lastAccumlated = accumlated;
-                    lastAccumlatedInvalid = accumlatedInvalid;
+                    lastAccumulated = accumulated;
+                    lastAccumulatedInvalid = accumulatedInvalid;
 
                     maxPower = 0;
                     powerDataCount = 0L;
@@ -189,14 +189,14 @@ public class Repair {
                     final Long recordCount = lapPowerDataCount.stream().reduce(Long::sum).get();
 
                     final int avgPower = recordCount != 0 ?
-                                             (int)Math.round((double)accumlated / recordCount) :
+                                             (int)Math.round((double) accumulated / recordCount) :
                                              0;
                     msg.setMaxPower(maxPower);
                     msg.setAvgPower(avgPower);
 
                     logger.info("--- Session ---");
                     logger.info("Record Count    : {}", recordCount);
-                    logger.info("SumPower        : {} (-{})", accumlated, accumlatedInvalid);
+                    logger.info("SumPower        : {} (-{})", accumulated, accumulatedInvalid);
                     logger.info("AvgPower        : {}", msg.getAvgPower());
                     logger.info("MaxPower        : {}", msg.getMaxPower());
                     logger.info("NormalizedPower : {}", msg.getNormalizedPower());
@@ -219,10 +219,10 @@ public class Repair {
         } finally {
             maxPower = 0;
             powerDataCount = 0L;
-            accumlated = 0L;
-            lastAccumlated = 0L;
-            accumlatedInvalid = 0L;
-            lastAccumlatedInvalid = 0L;
+            accumulated = 0L;
+            lastAccumulated = 0L;
+            accumulatedInvalid = 0L;
+            lastAccumulatedInvalid = 0L;
             lapMaxPower.clear();
             lapPowerDataCount.clear();
             reader.getDispatcher().removeListeners();
