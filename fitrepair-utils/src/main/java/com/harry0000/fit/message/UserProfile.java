@@ -2,7 +2,6 @@ package com.harry0000.fit.message;
 
 import static com.harry0000.fit.Constants.FIELD_MESSAGE_INDEX;
 
-import com.harry0000.fit.field.Field;
 import com.harry0000.fit.vo.BaseType;
 
 public class UserProfile extends DataMessage {
@@ -72,389 +71,322 @@ public class UserProfile extends DataMessage {
      * @return
      */
     public Integer getMessageIndex() {
-        final Number value = getFieldToNumber(FIELD_MESSAGE_INDEX);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(FIELD_MESSAGE_INDEX).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param messageIndex
      */
     public void setMessageIndex(final Integer messageIndex) {
-        final Field<?> f = getOrAddField(FIELD_MESSAGE_INDEX, BaseType.UINT16);
-        f.setValue(messageIndex);
+        getOrAddField(FIELD_MESSAGE_INDEX, BaseType.UINT16).setValue(messageIndex);
     }
 
     /**
      * @return
      */
     public String getFriendlyName() {
-        return getFieldToString(Fields.FRIENDLY_NAME);
+        return getFieldToString(Fields.FRIENDLY_NAME).orElse(null);
     }
 
     /**
      * @param friendlyName
      */
     public void setFriendlyName(final String friendlyName) {
-        final Field<?> f = getOrAddField(Fields.FRIENDLY_NAME);
-        f.setValue(friendlyName);
+        getOrAddField(Fields.FRIENDLY_NAME).setValue(friendlyName);
     }
 
     /**
      * @return
      */
     public Integer getGender() {
-        final Number value = getFieldToNumber(Fields.GENDER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.GENDER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param gender
      */
     public void setGender(final Integer gender) {
-        final Field<?> f = getOrAddField(Fields.GENDER);
-        f.setValue(gender);
+        getOrAddField(Fields.GENDER).setValue(gender);
     }
 
     /**
      * @return
      */
     public Integer getAge() {
-        final Number value = getFieldToNumber(Fields.AGE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AGE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param age
      */
     public void setAge(final Integer age) {
-        final Field<?> f = getOrAddField(Fields.AGE);
-        f.setValue(age);
+        getOrAddField(Fields.AGE).setValue(age);
     }
 
     /**
      * @return
      */
     public Integer getHeight() {
-        final Number value = getFieldToNumber(Fields.HEIGHT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.HEIGHT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param height
      */
     public void setHeight(final Integer height) {
-        final Field<?> f = getOrAddField(Fields.HEIGHT);
-        f.setValue(height);
+        getOrAddField(Fields.HEIGHT).setValue(height);
     }
 
     /**
      * @return
      */
     public Integer getWeight() {
-        final Number value = getFieldToNumber(Fields.WEIGHT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.WEIGHT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param weight
      */
     public void setWeight(final Integer weight) {
-        final Field<?> f = getOrAddField(Fields.WEIGHT);
-        f.setValue(weight);
+        getOrAddField(Fields.WEIGHT).setValue(weight);
     }
 
     /**
      * @return
      */
     public Integer getLanguage() {
-        final Number value = getFieldToNumber(Fields.LANGUAGE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.LANGUAGE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param language
      */
     public void setLanguage(final Integer language) {
-        final Field<?> f = getOrAddField(Fields.LANGUAGE);
-        f.setValue(language);
+        getOrAddField(Fields.LANGUAGE).setValue(language);
     }
 
     /**
      * @return
      */
     public Integer getElevSetting() {
-        final Number value = getFieldToNumber(Fields.ELEV_SETTING);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.ELEV_SETTING).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param elevSetting
      */
     public void setElevSetting(final Integer elevSetting) {
-        final Field<?> f = getOrAddField(Fields.ELEV_SETTING);
-        f.setValue(elevSetting);
+        getOrAddField(Fields.ELEV_SETTING).setValue(elevSetting);
     }
 
     /**
      * @return
      */
     public Integer getWeightSetting() {
-        final Number value = getFieldToNumber(Fields.WEIGHT_SETTING);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.WEIGHT_SETTING).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param weightSetting
      */
     public void setWeightSetting(final Integer weightSetting) {
-        final Field<?> f = getOrAddField(Fields.WEIGHT_SETTING);
-        f.setValue(weightSetting);
+        getOrAddField(Fields.WEIGHT_SETTING).setValue(weightSetting);
     }
 
     /**
      * @return
      */
     public Integer getRestingHeartRate() {
-        final Number value = getFieldToNumber(Fields.RESTING_HEART_RATE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.RESTING_HEART_RATE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param restingHeartRate
      */
     public void setRestingHeartRate(final Integer restingHeartRate) {
-        final Field<?> f = getOrAddField(Fields.RESTING_HEART_RATE);
-        f.setValue(restingHeartRate);
+        getOrAddField(Fields.RESTING_HEART_RATE).setValue(restingHeartRate);
     }
 
     /**
      * @return
      */
     public Integer getDefaultMaxRunningHeartRate() {
-        final Number value = getFieldToNumber(Fields.DEFAULT_MAX_RUNNING_HEART_RATE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.DEFAULT_MAX_RUNNING_HEART_RATE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param defaultMaxRunningHeartRate
      */
     public void setDefaultMaxRunningHeartRate(final Integer defaultMaxRunningHeartRate) {
-        final Field<?> f = getOrAddField(Fields.DEFAULT_MAX_RUNNING_HEART_RATE);
-        f.setValue(defaultMaxRunningHeartRate);
+        getOrAddField(Fields.DEFAULT_MAX_RUNNING_HEART_RATE).setValue(defaultMaxRunningHeartRate);
     }
 
     /**
      * @return
      */
     public Integer getDefaultMaxBikingHeartRate() {
-        final Number value = getFieldToNumber(Fields.DEFAULT_MAX_BIKING_HEART_RATE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.DEFAULT_MAX_BIKING_HEART_RATE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param defaultMaxBikingHeartRate
      */
     public void setDefaultMaxBikingHeartRate(final Integer defaultMaxBikingHeartRate) {
-        final Field<?> f = getOrAddField(Fields.DEFAULT_MAX_BIKING_HEART_RATE);
-        f.setValue(defaultMaxBikingHeartRate);
+        getOrAddField(Fields.DEFAULT_MAX_BIKING_HEART_RATE).setValue(defaultMaxBikingHeartRate);
     }
 
     /**
      * @return
      */
     public Integer getDefaultMaxHeartRate() {
-        final Number value = getFieldToNumber(Fields.DEFAULT_MAX_HEART_RATE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.DEFAULT_MAX_HEART_RATE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param defaultMaxHeartRate
      */
     public void setDefaultMaxHeartRate(final Integer defaultMaxHeartRate) {
-        final Field<?> f = getOrAddField(Fields.DEFAULT_MAX_HEART_RATE);
-        f.setValue(defaultMaxHeartRate);
+        getOrAddField(Fields.DEFAULT_MAX_HEART_RATE).setValue(defaultMaxHeartRate);
     }
 
     /**
      * @return
      */
     public Integer getHrSetting() {
-        final Number value = getFieldToNumber(Fields.HR_SETTING);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.HR_SETTING).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param hrSetting
      */
     public void setHrSetting(final Integer hrSetting) {
-        final Field<?> f = getOrAddField(Fields.HR_SETTING);
-        f.setValue(hrSetting);
+        getOrAddField(Fields.HR_SETTING).setValue(hrSetting);
     }
 
     /**
      * @return
      */
     public Integer getSpeedSetting() {
-        final Number value = getFieldToNumber(Fields.SPEED_SETTING);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SPEED_SETTING).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param speedSetting
      */
     public void setSpeedSetting(final Integer speedSetting) {
-        final Field<?> f = getOrAddField(Fields.SPEED_SETTING);
-        f.setValue(speedSetting);
+        getOrAddField(Fields.SPEED_SETTING).setValue(speedSetting);
     }
 
     /**
      * @return
      */
     public Integer getDistSetting() {
-        final Number value = getFieldToNumber(Fields.DIST_SETTING);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.DIST_SETTING).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param distSetting
      */
     public void setDistSetting(final Integer distSetting) {
-        final Field<?> f = getOrAddField(Fields.DIST_SETTING);
-        f.setValue(distSetting);
+        getOrAddField(Fields.DIST_SETTING).setValue(distSetting);
     }
 
     /**
      * @return
      */
     public Integer getPowerSetting() {
-        final Number value = getFieldToNumber(Fields.POWER_SETTING);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.POWER_SETTING).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param powerSetting
      */
     public void setPowerSetting(final Integer powerSetting) {
-        final Field<?> f = getOrAddField(Fields.POWER_SETTING);
-        f.setValue(powerSetting);
+        getOrAddField(Fields.POWER_SETTING).setValue(powerSetting);
     }
 
     /**
      * @return
      */
     public Integer getActivityClass() {
-        final Number value = getFieldToNumber(Fields.ACTIVITY_CLASS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.ACTIVITY_CLASS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param activityClass
      */
     public void setActivityClass(final Integer activityClass) {
-        final Field<?> f = getOrAddField(Fields.ACTIVITY_CLASS);
-        f.setValue(activityClass);
+        getOrAddField(Fields.ACTIVITY_CLASS).setValue(activityClass);
     }
 
     /**
      * @return
      */
     public Integer getPositionSetting() {
-        final Number value = getFieldToNumber(Fields.POSITION_SETTING);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.POSITION_SETTING).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param positionSetting
      */
     public void setPositionSetting(final Integer positionSetting) {
-        final Field<?> f = getOrAddField(Fields.POSITION_SETTING);
-        f.setValue(positionSetting);
+        getOrAddField(Fields.POSITION_SETTING).setValue(positionSetting);
     }
 
     /**
      * @return
      */
     public Integer getTemperatureSetting() {
-        final Number value = getFieldToNumber(Fields.TEMPERATURE_SETTING);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TEMPERATURE_SETTING).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param temperatureSetting
      */
     public void setTemperatureSetting(final Integer temperatureSetting) {
-        final Field<?> f = getOrAddField(Fields.TEMPERATURE_SETTING);
-        f.setValue(temperatureSetting);
+        getOrAddField(Fields.TEMPERATURE_SETTING).setValue(temperatureSetting);
     }
 
     /**
      * @return
      */
     public Integer getLocalId() {
-        final Number value = getFieldToNumber(Fields.LOCAL_ID);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.LOCAL_ID).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param localId
      */
     public void setLocalId(final Integer localId) {
-        final Field<?> f = getOrAddField(Fields.LOCAL_ID);
-        f.setValue(localId);
+        getOrAddField(Fields.LOCAL_ID).setValue(localId);
     }
 
     /**
      * @return
      */
     public Integer getGlobalId() {
-        final Number value = getFieldToNumber(Fields.GLOBAL_ID);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.GLOBAL_ID).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param globalId
      */
     public void setGlobalId(final Integer globalId) {
-        final Field<?> f = getOrAddField(Fields.GLOBAL_ID);
-        f.setValue(globalId);
+        getOrAddField(Fields.GLOBAL_ID).setValue(globalId);
     }
 
     /**
      * @return
      */
     public Integer getHeightSetting() {
-        final Number value = getFieldToNumber(Fields.HEIGHT_SETTING);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.HEIGHT_SETTING).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param heightSetting
      */
     public void setHeightSetting(final Integer heightSetting) {
-        final Field<?> f = getOrAddField(Fields.HEIGHT_SETTING);
-        f.setValue(heightSetting);
+        getOrAddField(Fields.HEIGHT_SETTING).setValue(heightSetting);
     }
 
 }

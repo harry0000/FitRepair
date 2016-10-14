@@ -2,7 +2,6 @@ package com.harry0000.fit.message;
 
 import static com.harry0000.fit.Constants.FIELD_MESSAGE_INDEX;
 
-import com.harry0000.fit.field.Field;
 import com.harry0000.fit.vo.BaseType;
 import com.harry0000.fit.vo.FitMessage;
 
@@ -75,287 +74,238 @@ public class Length extends DataMessage {
      * @return
      */
     public Integer getMessageIndex() {
-        final Number value = getFieldToNumber(FIELD_MESSAGE_INDEX);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(FIELD_MESSAGE_INDEX).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param messageIndex
      */
     public void setMessageIndex(final Integer messageIndex) {
-        final Field<?> f = getOrAddField(FIELD_MESSAGE_INDEX, BaseType.UINT16);
-        f.setValue(messageIndex);
+        getOrAddField(FIELD_MESSAGE_INDEX, BaseType.UINT16).setValue(messageIndex);
     }
 
     /**
      * @return
      */
     public Integer getEvent() {
-        final Number value = getFieldToNumber(Fields.EVENT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.EVENT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param event
      */
     public void setEvent(final Integer event) {
-        final Field<?> f = getOrAddField(Fields.EVENT);
-        f.setValue(event);
+        getOrAddField(Fields.EVENT).setValue(event);
     }
 
     /**
      * @return
      */
     public Integer getEventType() {
-        final Number value = getFieldToNumber(Fields.EVENT_TYPE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.EVENT_TYPE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param eventType
      */
     public void setEventType(final Integer eventType) {
-        final Field<?> f = getOrAddField(Fields.EVENT_TYPE);
-        f.setValue(eventType);
+        getOrAddField(Fields.EVENT_TYPE).setValue(eventType);
     }
 
     /**
      * @return
      */
     public Long getStartTime() {
-        return getFieldToUnixTime(Fields.START_TIME);
+        return getFieldToUnixTime(Fields.START_TIME).orElse(null);
     }
 
     /**
      * @param startTime
      */
     public void setStartTime(final Long startTime) {
-        final Field<?> f = getOrAddField(Fields.START_TIME);
-        f.setValue(toFitTimestamp(startTime));
+        getOrAddField(Fields.START_TIME).setValue(toFitTimestamp(startTime).orElse(null));
     }
 
     /**
      * @return
      */
     public Long getTotalElapsedTime() {
-        final Number value = getFieldToNumber(Fields.TOTAL_ELAPSED_TIME);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TOTAL_ELAPSED_TIME).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param totalElapsedTime
      */
     public void setTotalElapsedTime(final Long totalElapsedTime) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_ELAPSED_TIME);
-        f.setValue(totalElapsedTime);
+        getOrAddField(Fields.TOTAL_ELAPSED_TIME).setValue(totalElapsedTime);
     }
 
     /**
      * @return
      */
     public Long getTotalTimerTime() {
-        final Number value = getFieldToNumber(Fields.TOTAL_TIMER_TIME);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TOTAL_TIMER_TIME).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param totalTimerTime
      */
     public void setTotalTimerTime(final Long totalTimerTime) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_TIMER_TIME);
-        f.setValue(totalTimerTime);
+        getOrAddField(Fields.TOTAL_TIMER_TIME).setValue(totalTimerTime);
     }
 
     /**
      * @return
      */
     public Integer getTotalStrokes() {
-        final Number value = getFieldToNumber(Fields.TOTAL_STROKES);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TOTAL_STROKES).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param totalStrokes
      */
     public void setTotalStrokes(final Integer totalStrokes) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_STROKES);
-        f.setValue(totalStrokes);
+        getOrAddField(Fields.TOTAL_STROKES).setValue(totalStrokes);
     }
 
     /**
      * @return
      */
     public Integer getAvgSpeed() {
-        final Number value = getFieldToNumber(Fields.AVG_SPEED);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_SPEED).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgSpeed
      */
     public void setAvgSpeed(final Integer avgSpeed) {
-        final Field<?> f = getOrAddField(Fields.AVG_SPEED);
-        f.setValue(avgSpeed);
+        getOrAddField(Fields.AVG_SPEED).setValue(avgSpeed);
     }
 
     /**
      * @return
      */
     public Integer getSwimStroke() {
-        final Number value = getFieldToNumber(Fields.SWIM_STROKE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SWIM_STROKE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param swimStroke
      */
     public void setSwimStroke(final Integer swimStroke) {
-        final Field<?> f = getOrAddField(Fields.SWIM_STROKE);
-        f.setValue(swimStroke);
+        getOrAddField(Fields.SWIM_STROKE).setValue(swimStroke);
     }
 
     /**
      * @return
      */
     public Integer getAvgSwimmingCadence() {
-        final Number value = getFieldToNumber(Fields.AVG_SWIMMING_CADENCE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_SWIMMING_CADENCE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgSwimmingCadence
      */
     public void setAvgSwimmingCadence(final Integer avgSwimmingCadence) {
-        final Field<?> f = getOrAddField(Fields.AVG_SWIMMING_CADENCE);
-        f.setValue(avgSwimmingCadence);
+        getOrAddField(Fields.AVG_SWIMMING_CADENCE).setValue(avgSwimmingCadence);
     }
 
     /**
      * @return
      */
     public Integer getEventGroup() {
-        final Number value = getFieldToNumber(Fields.EVENT_GROUP);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.EVENT_GROUP).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param eventGroup
      */
     public void setEventGroup(final Integer eventGroup) {
-        final Field<?> f = getOrAddField(Fields.EVENT_GROUP);
-        f.setValue(eventGroup);
+        getOrAddField(Fields.EVENT_GROUP).setValue(eventGroup);
     }
 
     /**
      * @return
      */
     public Integer getTotalCalories() {
-        final Number value = getFieldToNumber(Fields.TOTAL_CALORIES);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TOTAL_CALORIES).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param totalCalories
      */
     public void setTotalCalories(final Integer totalCalories) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_CALORIES);
-        f.setValue(totalCalories);
+        getOrAddField(Fields.TOTAL_CALORIES).setValue(totalCalories);
     }
 
     /**
      * @return
      */
     public Integer getLengthType() {
-        final Number value = getFieldToNumber(Fields.LENGTH_TYPE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.LENGTH_TYPE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param lengthType
      */
     public void setLengthType(final Integer lengthType) {
-        final Field<?> f = getOrAddField(Fields.LENGTH_TYPE);
-        f.setValue(lengthType);
+        getOrAddField(Fields.LENGTH_TYPE).setValue(lengthType);
     }
 
     /**
      * @return
      */
     public Integer getPlayerScore() {
-        final Number value = getFieldToNumber(Fields.PLAYER_SCORE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.PLAYER_SCORE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param playerScore
      */
     public void setPlayerScore(final Integer playerScore) {
-        final Field<?> f = getOrAddField(Fields.PLAYER_SCORE);
-        f.setValue(playerScore);
+        getOrAddField(Fields.PLAYER_SCORE).setValue(playerScore);
     }
 
     /**
      * @return
      */
     public Integer getOpponentScore() {
-        final Number value = getFieldToNumber(Fields.OPPONENT_SCORE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.OPPONENT_SCORE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param opponentScore
      */
     public void setOpponentScore(final Integer opponentScore) {
-        final Field<?> f = getOrAddField(Fields.OPPONENT_SCORE);
-        f.setValue(opponentScore);
+        getOrAddField(Fields.OPPONENT_SCORE).setValue(opponentScore);
     }
 
     /**
      * @return
      */
     public Integer getStrokeCount() {
-        final Number value = getFieldToNumber(Fields.STROKE_COUNT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.STROKE_COUNT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param strokeCount
      */
     public void setStrokeCount(final Integer strokeCount) {
-        final Field<?> f = getOrAddField(Fields.STROKE_COUNT);
-        f.setValue(strokeCount);
+        getOrAddField(Fields.STROKE_COUNT).setValue(strokeCount);
     }
 
     /**
      * @return
      */
     public Integer getZoneCount() {
-        final Number value = getFieldToNumber(Fields.ZONE_COUNT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.ZONE_COUNT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param zoneCount
      */
     public void setZoneCount(final Integer zoneCount) {
-        final Field<?> f = getOrAddField(Fields.ZONE_COUNT);
-        f.setValue(zoneCount);
+        getOrAddField(Fields.ZONE_COUNT).setValue(zoneCount);
     }
 
 }

@@ -1,6 +1,5 @@
 package com.harry0000.fit.message;
 
-import com.harry0000.fit.field.Field;
 import com.harry0000.fit.vo.BaseType;
 
 public class DeviceSettings extends DataMessage {
@@ -51,51 +50,42 @@ public class DeviceSettings extends DataMessage {
      * @return
      */
     public Integer getActiveTimeZone() {
-        final Number value = getFieldToNumber(Fields.ACTIVE_TIME_ZONE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.ACTIVE_TIME_ZONE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param activeTimeZone
      */
     public void setActiveTimeZone(final Integer activeTimeZone) {
-        final Field<?> f = getOrAddField(Fields.ACTIVE_TIME_ZONE);
-        f.setValue(activeTimeZone);
+        getOrAddField(Fields.ACTIVE_TIME_ZONE).setValue(activeTimeZone);
     }
 
     /**
      * @return
      */
     public Long getUtcOffset() {
-        final Number value = getFieldToNumber(Fields.UTC_OFFSET);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.UTC_OFFSET).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param utcOffset
      */
     public void setUtcOffset(final Long utcOffset) {
-        final Field<?> f = getOrAddField(Fields.UTC_OFFSET);
-        f.setValue(utcOffset);
+        getOrAddField(Fields.UTC_OFFSET).setValue(utcOffset);
     }
 
     /**
      * @return
      */
     public Byte getTimeZoneOffset() {
-        final Number value = getFieldToNumber(Fields.TIME_ZONE_OFFSET);
-
-        return value != null ? value.byteValue() : null;
+        return getFieldToNumber(Fields.TIME_ZONE_OFFSET).map(Number::byteValue).orElse(null);
     }
 
     /**
      * @param timeZoneOffset
      */
     public void setTimeZoneOffset(final Byte timeZoneOffset) {
-        final Field<?> f = getOrAddField(Fields.TIME_ZONE_OFFSET);
-        f.setValue(timeZoneOffset);
+        getOrAddField(Fields.TIME_ZONE_OFFSET).setValue(timeZoneOffset);
     }
 
 }

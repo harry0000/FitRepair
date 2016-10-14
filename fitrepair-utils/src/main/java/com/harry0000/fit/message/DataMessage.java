@@ -9,6 +9,7 @@ import static com.harry0000.fit.Constants.RECORD_HEADER_TYPE_MASK;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.harry0000.fit.field.Field;
 import com.harry0000.fit.field.FieldDefinition;
@@ -25,28 +26,22 @@ public class DataMessage {
      * @param fitTimestamp
      * @return
      */
-    private static Long toDateTime(final Number fitTimestamp) {
-        if (fitTimestamp == null) {
-            return null;
-        }
-
-        return fitTimestamp.longValue() * 1000 + TIMESTAMP_OFFSET;
+    private static Optional<Long> toDateTime(final Number fitTimestamp) {
+        return Optional.ofNullable(fitTimestamp)
+                       .map(t -> t.longValue() * 1000L + TIMESTAMP_OFFSET);
     }
 
     /**
      * @param unixTime
      * @return
      */
-    protected static Long toFitTimestamp(final Long unixTime) {
-        if (unixTime == null) {
-            return null;
-        }
-
-        return (unixTime - TIMESTAMP_OFFSET) / 1000;
+    protected static Optional<Long> toFitTimestamp(final Long unixTime) {
+        return Optional.ofNullable(unixTime)
+                       .map(t -> (t - TIMESTAMP_OFFSET) / 1000L);
     }
 
     private final byte header;
-    private final Long timestamp;
+    private final Optional<Long> timestamp;
     private List<Field<?>> fields = new ArrayList<>();
 
     /**
@@ -62,7 +57,7 @@ public class DataMessage {
      */
     public DataMessage(final byte header, final Long timestamp) {
         this.header = header;
-        this.timestamp = timestamp;
+        this.timestamp = Optional.ofNullable(timestamp);
     }
 
     /**
@@ -71,9 +66,7 @@ public class DataMessage {
     DataMessage(final DataMessage msg) {
         this.header = msg.header;
         this.timestamp = msg.timestamp;
-        for (final Field<?> field : msg.fields) {
-            this.fields.add(field);
-        }
+        this.fields.addAll(msg.fields);
     }
 
     /**
@@ -127,21 +120,26 @@ public class DataMessage {
      * @return
      */
     public Field<?> getField(final byte definitionNumber) {
-        for (final Field<?> f : fields) {
-            if (definitionNumber == f.getDefinitionNumber()) {
-                return f;
-            }
-        }
+        return getFieldOpt(definitionNumber).orElse(null);
+    }
 
-        return null;
+    /**
+     * @param definitionNumber
+     * @return
+     */
+    public Optional<Field<?>> getFieldOpt(final byte definitionNumber) {
+        return fields
+                .stream()
+                .filter(f -> f.getDefinitionNumber() == definitionNumber)
+                .findFirst();
     }
 
     /**
      * @param fieldType
      * @return
      */
-    protected Field<?> getField(final FieldProfile fieldType) {
-        return getField(fieldType.getDefinitionNumber());
+    protected Optional<Field<?>> getField(final FieldProfile fieldType) {
+        return getFieldOpt(fieldType.getDefinitionNumber());
     }
 
     /**
@@ -150,14 +148,12 @@ public class DataMessage {
      * @return
      */
     protected Field<?> getOrAddField(final byte definitionNumber, final BaseType baseType) {
-        final Field<?> field = getField(definitionNumber);
-        if (field != null) {
-            return field;
-        }
-
-        final Field<?> newField = FieldFactory.build(new FieldDefinition(definitionNumber, baseType));
-        fields.add(newField);
-        return newField;
+        return getFieldOpt(definitionNumber)
+                .orElseGet(() -> {
+                    final Field<?> newField = FieldFactory.build(new FieldDefinition(definitionNumber, baseType));
+                    fields.add(newField);
+                    return newField;
+                });
     }
 
     /**
@@ -172,20 +168,15 @@ public class DataMessage {
      * @param definitionNumber
      * @return
      */
-    protected Number getFieldToNumber(final byte definitionNumber) {
-        final Field<?> field = getField(definitionNumber);
-        if (field == null) {
-            return null;
-        }
-
-        return field.toNumber();
+    protected Optional<Number> getFieldToNumber(final byte definitionNumber) {
+        return getFieldOpt(definitionNumber).map(Field::toNumber);
     }
 
     /**
      * @param fieldType
      * @return
      */
-    protected Number getFieldToNumber(final FieldProfile fieldType) {
+    protected Optional<Number> getFieldToNumber(final FieldProfile fieldType) {
         return getFieldToNumber(fieldType.getDefinitionNumber());
     }
 
@@ -193,20 +184,15 @@ public class DataMessage {
      * @param definitionNumber
      * @return
      */
-    protected String getFieldToString(final byte definitionNumber) {
-        final Field<?> field = getField(definitionNumber);
-        if (field == null) {
-            return null;
-        }
-
-        return field.toString();
+    protected Optional<String> getFieldToString(final byte definitionNumber) {
+        return getFieldOpt(definitionNumber).map(Field::toString);
     }
 
     /**
      * @param fieldType
      * @return
      */
-    protected String getFieldToString(final FieldProfile fieldType) {
+    protected Optional<String> getFieldToString(final FieldProfile fieldType) {
         return getFieldToString(fieldType.getDefinitionNumber());
     }
 
@@ -214,15 +200,15 @@ public class DataMessage {
      * @param definitionNumber
      * @return
      */
-    protected Long getFieldToUnixTime(final byte definitionNumber) {
-        return toDateTime(getFieldToNumber(definitionNumber));
+    protected Optional<Long> getFieldToUnixTime(final byte definitionNumber) {
+        return getFieldToNumber(definitionNumber).flatMap(DataMessage::toDateTime);
     }
 
     /**
      * @param fieldType
      * @return
      */
-    protected Long getFieldToUnixTime(final FieldProfile fieldType) {
+    protected Optional<Long> getFieldToUnixTime(final FieldProfile fieldType) {
         return getFieldToUnixTime(fieldType.getDefinitionNumber());
     }
 
@@ -230,11 +216,7 @@ public class DataMessage {
      * @return
      */
     public Long getTimestamp() {
-        if (isCompressedTimestamp()) {
-            return timestamp;
-        }
-
-        return getFieldToUnixTime(FIELD_TIMESTAMP);
+        return (isCompressedTimestamp() ? timestamp : getFieldToUnixTime(FIELD_TIMESTAMP)).orElse(null);
     }
 
     /**
@@ -245,8 +227,7 @@ public class DataMessage {
             return;
         }
 
-        final Field<?> field = getOrAddField(FIELD_TIMESTAMP, BaseType.UINT32);
-        field.setValue(toFitTimestamp(unixTime));
+        getOrAddField(FIELD_TIMESTAMP, BaseType.UINT32).setValue(toFitTimestamp(unixTime).orElse(null));
     }
 
     /**

@@ -1,8 +1,10 @@
 package com.harry0000.fit.message;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.harry0000.fit.field.Field;
 import com.harry0000.fit.vo.BaseType;
@@ -62,17 +64,14 @@ public class Hrv extends DataMessage {
      * @return
      */
     public Integer getTime() {
-        final Number value = getFieldToNumber(Fields.FIELD_TIME);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.FIELD_TIME).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param time
      */
     public void setTime(final Integer time) {
-        final Field<?> f = getOrAddField(Fields.FIELD_TIME);
-        f.setValue(time);
+        getOrAddField(Fields.FIELD_TIME).setValue(time);
     }
 
     /**
@@ -80,13 +79,10 @@ public class Hrv extends DataMessage {
      * @return
      */
     public Integer getTime(final int index) {
-        final Field<?> field = getField(Fields.FIELD_TIME);
-        if (field == null) {
-            return null;
-        }
-
-        final Number value = field.toNumber(index);
-        return value != null ? value.intValue() : null;
+        return getField(Fields.FIELD_TIME)
+                .flatMap(f -> Optional.ofNullable(f.toNumber(index)))
+                .map(Number::intValue)
+                .orElse(null);
     }
 
     /**
@@ -94,26 +90,20 @@ public class Hrv extends DataMessage {
      * @param time
      */
     public void setTime(final int index, final Integer time) {
-        final Field<?> f = getOrAddField(Fields.FIELD_TIME);
-        f.setValue(index, time);
+        getOrAddField(Fields.FIELD_TIME).setValue(index, time);
     }
 
     /**
      * @return
      */
     public List<Integer> getTimes() {
-        final Field<?> field = getField(Fields.FIELD_TIME);
-        if (field == null) {
-            return Collections.emptyList();
-        }
-
-        final int size = field.getValues().size();
-        final List<Integer> times = new ArrayList<>(size);
-        for (int i = 0; i < size; i++) {
-            final Number value = field.toNumber(i);
-            times.add(value != null ? value.intValue() : null);
-        }
-        return times;
+        return getField(Fields.FIELD_TIME)
+                .map(f ->
+                    Stream.iterate(0, i -> i + 1)
+                          .limit(f.getValues().size())
+                          .map(i -> Optional.ofNullable(f.toNumber(i)).map(Number::intValue).orElseGet(null))
+                          .collect(Collectors.toList()))
+                .orElse(Collections.emptyList());
     }
 
     /**
@@ -122,10 +112,7 @@ public class Hrv extends DataMessage {
     public void setTimes(final List<Integer> times) {
         final Field<?> f = getOrAddField(Fields.FIELD_TIME);
         f.getValues().clear();
-
-        for (final Integer time : times) {
-            f.addValue(time);
-        }
+        times.forEach(f::addValue);
     }
 
 }

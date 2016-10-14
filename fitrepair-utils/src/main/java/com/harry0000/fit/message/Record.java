@@ -1,6 +1,5 @@
 package com.harry0000.fit.message;
 
-import com.harry0000.fit.field.Field;
 import com.harry0000.fit.vo.BaseType;
 import com.harry0000.fit.vo.FitMessage;
 
@@ -112,935 +111,770 @@ public class Record extends DataMessage {
      * @return
      */
     public Integer getPositionLat() {
-        final Number value = getFieldToNumber(Fields.POSITION_LAT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.POSITION_LAT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param positionLat
      */
     public void setPositionLat(final Integer positionLat) {
-        final Field<?> f = getOrAddField(Fields.POSITION_LAT);
-        f.setValue(positionLat);
+        getOrAddField(Fields.POSITION_LAT).setValue(positionLat);
     }
 
     /**
      * @return
      */
     public Integer getPositionLong() {
-        final Number value = getFieldToNumber(Fields.POSITION_LONG);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.POSITION_LONG).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param positionLong
      */
     public void setPositionLong(final Integer positionLong) {
-        final Field<?> f = getOrAddField(Fields.POSITION_LONG);
-        f.setValue(positionLong);
+        getOrAddField(Fields.POSITION_LONG).setValue(positionLong);
     }
 
     /**
      * @return
      */
     public Integer getAltitude() {
-        final Number value = getFieldToNumber(Fields.ALTITUDE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.ALTITUDE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param altitude
      */
     public void setAltitude(final Integer altitude) {
-        final Field<?> f = getOrAddField(Fields.ALTITUDE);
-        f.setValue(altitude);
+        getOrAddField(Fields.ALTITUDE).setValue(altitude);
     }
 
     /**
      * @return
      */
     public Integer getHeartRate() {
-        final Number value = getFieldToNumber(Fields.HEART_RATE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.HEART_RATE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param heartRate
      */
     public void setHeartRate(final Integer heartRate) {
-        final Field<?> f = getOrAddField(Fields.HEART_RATE);
-        f.setValue(heartRate);
+        getOrAddField(Fields.HEART_RATE).setValue(heartRate);
     }
 
     /**
      * @return
      */
     public Integer getCadence() {
-        final Number value = getFieldToNumber(Fields.CADENCE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.CADENCE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param cadence
      */
     public void setCadence(final Integer cadence) {
-        final Field<?> f = getOrAddField(Fields.CADENCE);
-        f.setValue(cadence);
+        getOrAddField(Fields.CADENCE).setValue(cadence);
     }
 
     /**
      * @return
      */
     public Long getDistance() {
-        final Number value = getFieldToNumber(Fields.DISTANCE);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.DISTANCE).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param distance
      */
     public void setDistance(final Long distance) {
-        final Field<?> f = getOrAddField(Fields.DISTANCE);
-        f.setValue(distance);
+        getOrAddField(Fields.DISTANCE).setValue(distance);
     }
 
     /**
      * @return
      */
     public Integer getSpeed() {
-        final Number value = getFieldToNumber(Fields.SPEED);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SPEED).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param speed
      */
     public void setSpeed(final Integer speed) {
-        final Field<?> f = getOrAddField(Fields.SPEED);
-        f.setValue(speed);
+        getOrAddField(Fields.SPEED).setValue(speed);
     }
 
     /**
      * @return
      */
     public Integer getPower() {
-        final Number value = getFieldToNumber(Fields.POWER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.POWER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param power
      */
     public void setPower(final Integer power) {
-        final Field<?> f = getOrAddField(Fields.POWER);
-        f.setValue(power);
+        getOrAddField(Fields.POWER).setValue(power);
     }
 
     /**
      * @return
      */
     public Integer getCompressedSpeedDistance() {
-        final Number value = getFieldToNumber(Fields.COMPRESSED_SPEED_DISTANCE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.COMPRESSED_SPEED_DISTANCE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param compressedSpeedDistance
      */
     public void setCompressedSpeedDistance(final Integer compressedSpeedDistance) {
-        final Field<?> f = getOrAddField(Fields.COMPRESSED_SPEED_DISTANCE);
-        f.setValue(compressedSpeedDistance);
+        getOrAddField(Fields.COMPRESSED_SPEED_DISTANCE).setValue(compressedSpeedDistance);
     }
 
     /**
      * @return
      */
     public Short getGrade() {
-        final Number value = getFieldToNumber(Fields.GRADE);
-
-        return value != null ? value.shortValue() : null;
+        return getFieldToNumber(Fields.GRADE).map(Number::shortValue).orElse(null);
     }
 
     /**
      * @param grade
      */
     public void setGrade(final Short grade) {
-        final Field<?> f = getOrAddField(Fields.GRADE);
-        f.setValue(grade);
+        getOrAddField(Fields.GRADE).setValue(grade);
     }
 
     /**
      * @return
      */
     public Integer getResistance() {
-        final Number value = getFieldToNumber(Fields.RESISTANCE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.RESISTANCE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param resistance
      */
     public void setResistance(final Integer resistance) {
-        final Field<?> f = getOrAddField(Fields.RESISTANCE);
-        f.setValue(resistance);
+        getOrAddField(Fields.RESISTANCE).setValue(resistance);
     }
 
     /**
      * @return
      */
     public Integer getTimeFromCourse() {
-        final Number value = getFieldToNumber(Fields.TIME_FROM_COURSE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TIME_FROM_COURSE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param timeFromCourse
      */
     public void setTimeFromCourse(final Integer timeFromCourse) {
-        final Field<?> f = getOrAddField(Fields.TIME_FROM_COURSE);
-        f.setValue(timeFromCourse);
+        getOrAddField(Fields.TIME_FROM_COURSE).setValue(timeFromCourse);
     }
 
     /**
      * @return
      */
     public Integer getCycleLength() {
-        final Number value = getFieldToNumber(Fields.CYCLE_LENGTH);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.CYCLE_LENGTH).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param cycleLength
      */
     public void setCycleLength(final Integer cycleLength) {
-        final Field<?> f = getOrAddField(Fields.CYCLE_LENGTH);
-        f.setValue(cycleLength);
+        getOrAddField(Fields.CYCLE_LENGTH).setValue(cycleLength);
     }
 
     /**
      * @return
      */
     public Byte getTemperature() {
-        final Number value = getFieldToNumber(Fields.TEMPERATURE);
-
-        return value != null ? value.byteValue() : null;
+        return getFieldToNumber(Fields.TEMPERATURE).map(Number::byteValue).orElse(null);
     }
 
     /**
      * @param temperature
      */
     public void setTemperature(final Byte temperature) {
-        final Field<?> f = getOrAddField(Fields.TEMPERATURE);
-        f.setValue(temperature);
+        getOrAddField(Fields.TEMPERATURE).setValue(temperature);
     }
 
     /**
      * @return
      */
     public Integer getSpeed1s() {
-        final Number value = getFieldToNumber(Fields.SPEED_1S);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SPEED_1S).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param speed1s
      */
     public void setSpeed1s(final Integer speed1s) {
-        final Field<?> f = getOrAddField(Fields.SPEED_1S);
-        f.setValue(speed1s);
+        getOrAddField(Fields.SPEED_1S).setValue(speed1s);
     }
 
     /**
      * @return
      */
     public Integer getCycles() {
-        final Number value = getFieldToNumber(Fields.CYCLES);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.CYCLES).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param cycles
      */
     public void setCycles(final Integer cycles) {
-        final Field<?> f = getOrAddField(Fields.CYCLES);
-        f.setValue(cycles);
+        getOrAddField(Fields.CYCLES).setValue(cycles);
     }
 
     /**
      * @return
      */
     public Long getTotalCycles() {
-        final Number value = getFieldToNumber(Fields.TOTAL_CYCLES);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TOTAL_CYCLES).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param totalCycles
      */
     public void setTotalCycles(final Long totalCycles) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_CYCLES);
-        f.setValue(totalCycles);
+        getOrAddField(Fields.TOTAL_CYCLES).setValue(totalCycles);
     }
 
     /**
      * @return
      */
     public Integer getCompressedAccumulatedPower() {
-        final Number value = getFieldToNumber(Fields.COMPRESSED_ACCUMULATED_POWER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.COMPRESSED_ACCUMULATED_POWER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param compressedAccumulatedPower
      */
     public void setCompressedAccumulatedPower(final Integer compressedAccumulatedPower) {
-        final Field<?> f = getOrAddField(Fields.COMPRESSED_ACCUMULATED_POWER);
-        f.setValue(compressedAccumulatedPower);
+        getOrAddField(Fields.COMPRESSED_ACCUMULATED_POWER).setValue(compressedAccumulatedPower);
     }
 
     /**
      * @return
      */
     public Long getAccumulatedPower() {
-        final Number value = getFieldToNumber(Fields.ACCUMULATED_POWER);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.ACCUMULATED_POWER).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param accumulatedPower
      */
     public void setAccumulatedPower(final Long accumulatedPower) {
-        final Field<?> f = getOrAddField(Fields.ACCUMULATED_POWER);
-        f.setValue(accumulatedPower);
+        getOrAddField(Fields.ACCUMULATED_POWER).setValue(accumulatedPower);
     }
 
     /**
      * @return
      */
     public Integer getLeftRightBalance() {
-        final Number value = getFieldToNumber(Fields.LEFT_RIGHT_BALANCE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.LEFT_RIGHT_BALANCE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param leftRightBalance
      */
     public void setLeftRightBalance(final Integer leftRightBalance) {
-        final Field<?> f = getOrAddField(Fields.LEFT_RIGHT_BALANCE);
-        f.setValue(leftRightBalance);
+        getOrAddField(Fields.LEFT_RIGHT_BALANCE).setValue(leftRightBalance);
     }
 
     /**
      * @return
      */
     public Integer getGpsAccuracy() {
-        final Number value = getFieldToNumber(Fields.GPS_ACCURACY);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.GPS_ACCURACY).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param gpsAccuracy
      */
     public void setGpsAccuracy(final Integer gpsAccuracy) {
-        final Field<?> f = getOrAddField(Fields.GPS_ACCURACY);
-        f.setValue(gpsAccuracy);
+        getOrAddField(Fields.GPS_ACCURACY).setValue(gpsAccuracy);
     }
 
     /**
      * @return
      */
     public Short getVerticalSpeed() {
-        final Number value = getFieldToNumber(Fields.VERTICAL_SPEED);
-
-        return value != null ? value.shortValue() : null;
+        return getFieldToNumber(Fields.VERTICAL_SPEED).map(Number::shortValue).orElse(null);
     }
 
     /**
      * @param verticalSpeed
      */
     public void setVerticalSpeed(final Short verticalSpeed) {
-        final Field<?> f = getOrAddField(Fields.VERTICAL_SPEED);
-        f.setValue(verticalSpeed);
+        getOrAddField(Fields.VERTICAL_SPEED).setValue(verticalSpeed);
     }
 
     /**
      * @return
      */
     public Integer getCalories() {
-        final Number value = getFieldToNumber(Fields.CALORIES);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.CALORIES).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param calories
      */
     public void setCalories(final Integer calories) {
-        final Field<?> f = getOrAddField(Fields.CALORIES);
-        f.setValue(calories);
+        getOrAddField(Fields.CALORIES).setValue(calories);
     }
 
     /**
      * @return
      */
     public Integer getVerticalOscillation() {
-        final Number value = getFieldToNumber(Fields.VERTICAL_OSCILLATION);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.VERTICAL_OSCILLATION).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param verticalOscillation
      */
     public void setVerticalOscillation(final Integer verticalOscillation) {
-        final Field<?> f = getOrAddField(Fields.VERTICAL_OSCILLATION);
-        f.setValue(verticalOscillation);
+        getOrAddField(Fields.VERTICAL_OSCILLATION).setValue(verticalOscillation);
     }
 
     /**
      * @return
      */
     public Integer getStanceTimePercent() {
-        final Number value = getFieldToNumber(Fields.STANCE_TIME_PERCENT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.STANCE_TIME_PERCENT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param stanceTimePercent
      */
     public void setStanceTimePercent(final Integer stanceTimePercent) {
-        final Field<?> f = getOrAddField(Fields.STANCE_TIME_PERCENT);
-        f.setValue(stanceTimePercent);
+        getOrAddField(Fields.STANCE_TIME_PERCENT).setValue(stanceTimePercent);
     }
 
     /**
      * @return
      */
     public Integer getStanceTime() {
-        final Number value = getFieldToNumber(Fields.STANCE_TIME);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.STANCE_TIME).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param stanceTime
      */
     public void setStanceTime(final Integer stanceTime) {
-        final Field<?> f = getOrAddField(Fields.STANCE_TIME);
-        f.setValue(stanceTime);
+        getOrAddField(Fields.STANCE_TIME).setValue(stanceTime);
     }
 
     /**
      * @return
      */
     public Integer getActivityType() {
-        final Number value = getFieldToNumber(Fields.ACTIVITY_TYPE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.ACTIVITY_TYPE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param activityType
      */
     public void setActivityType(final Integer activityType) {
-        final Field<?> f = getOrAddField(Fields.ACTIVITY_TYPE);
-        f.setValue(activityType);
+        getOrAddField(Fields.ACTIVITY_TYPE).setValue(activityType);
     }
 
     /**
      * @return
      */
     public Integer getLeftTorqueEffectiveness() {
-        final Number value = getFieldToNumber(Fields.LEFT_TORQUE_EFFECTIVENESS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.LEFT_TORQUE_EFFECTIVENESS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param leftTorqueEffectiveness
      */
     public void setLeftTorqueEffectiveness(final Integer leftTorqueEffectiveness) {
-        final Field<?> f = getOrAddField(Fields.LEFT_TORQUE_EFFECTIVENESS);
-        f.setValue(leftTorqueEffectiveness);
+        getOrAddField(Fields.LEFT_TORQUE_EFFECTIVENESS).setValue(leftTorqueEffectiveness);
     }
 
     /**
      * @return
      */
     public Integer getRightTorqueEffectiveness() {
-        final Number value = getFieldToNumber(Fields.RIGHT_TORQUE_EFFECTIVENESS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.RIGHT_TORQUE_EFFECTIVENESS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param rightTorqueEffectiveness
      */
     public void setRightTorqueEffectiveness(final Integer rightTorqueEffectiveness) {
-        final Field<?> f = getOrAddField(Fields.RIGHT_TORQUE_EFFECTIVENESS);
-        f.setValue(rightTorqueEffectiveness);
+        getOrAddField(Fields.RIGHT_TORQUE_EFFECTIVENESS).setValue(rightTorqueEffectiveness);
     }
 
     /**
      * @return
      */
     public Integer getLeftPedalSmoothness() {
-        final Number value = getFieldToNumber(Fields.LEFT_PEDAL_SMOOTHNESS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.LEFT_PEDAL_SMOOTHNESS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param leftPedalSmoothness
      */
     public void setLeftPedalSmoothness(final Integer leftPedalSmoothness) {
-        final Field<?> f = getOrAddField(Fields.LEFT_PEDAL_SMOOTHNESS);
-        f.setValue(leftPedalSmoothness);
+        getOrAddField(Fields.LEFT_PEDAL_SMOOTHNESS).setValue(leftPedalSmoothness);
     }
 
     /**
      * @return
      */
     public Integer getRightPedalSmoothness() {
-        final Number value = getFieldToNumber(Fields.RIGHT_PEDAL_SMOOTHNESS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.RIGHT_PEDAL_SMOOTHNESS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param rightPedalSmoothness
      */
     public void setRightPedalSmoothness(final Integer rightPedalSmoothness) {
-        final Field<?> f = getOrAddField(Fields.RIGHT_PEDAL_SMOOTHNESS);
-        f.setValue(rightPedalSmoothness);
+        getOrAddField(Fields.RIGHT_PEDAL_SMOOTHNESS).setValue(rightPedalSmoothness);
     }
 
     /**
      * @return
      */
     public Integer getCombinedPedalSmoothness() {
-        final Number value = getFieldToNumber(Fields.COMBINED_PEDAL_SMOOTHNESS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.COMBINED_PEDAL_SMOOTHNESS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param combinedPedalSmoothness
      */
     public void setCombinedPedalSmoothness(final Integer combinedPedalSmoothness) {
-        final Field<?> f = getOrAddField(Fields.COMBINED_PEDAL_SMOOTHNESS);
-        f.setValue(combinedPedalSmoothness);
+        getOrAddField(Fields.COMBINED_PEDAL_SMOOTHNESS).setValue(combinedPedalSmoothness);
     }
 
     /**
      * @return
      */
     public Integer getTime128() {
-        final Number value = getFieldToNumber(Fields.TIME128);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TIME128).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param time128
      */
     public void setTime128(final Integer time128) {
-        final Field<?> f = getOrAddField(Fields.TIME128);
-        f.setValue(time128);
+        getOrAddField(Fields.TIME128).setValue(time128);
     }
 
     /**
      * @return
      */
     public Integer getStrokeType() {
-        final Number value = getFieldToNumber(Fields.STROKE_TYPE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.STROKE_TYPE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param strokeType
      */
     public void setStrokeType(final Integer strokeType) {
-        final Field<?> f = getOrAddField(Fields.STROKE_TYPE);
-        f.setValue(strokeType);
+        getOrAddField(Fields.STROKE_TYPE).setValue(strokeType);
     }
 
     /**
      * @return
      */
     public Integer getZone() {
-        final Number value = getFieldToNumber(Fields.ZONE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.ZONE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param zone
      */
     public void setZone(final Integer zone) {
-        final Field<?> f = getOrAddField(Fields.ZONE);
-        f.setValue(zone);
+        getOrAddField(Fields.ZONE).setValue(zone);
     }
 
     /**
      * @return
      */
     public Integer getBallSpeed() {
-        final Number value = getFieldToNumber(Fields.BALL_SPEED);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.BALL_SPEED).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param ballSpeed
      */
     public void setBallSpeed(final Integer ballSpeed) {
-        final Field<?> f = getOrAddField(Fields.BALL_SPEED);
-        f.setValue(ballSpeed);
+        getOrAddField(Fields.BALL_SPEED).setValue(ballSpeed);
     }
 
     /**
      * @return
      */
     public Integer getCadence256() {
-        final Number value = getFieldToNumber(Fields.CADENCE256);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.CADENCE256).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param cadence256
      */
     public void setCadence256(final Integer cadence256) {
-        final Field<?> f = getOrAddField(Fields.CADENCE256);
-        f.setValue(cadence256);
+        getOrAddField(Fields.CADENCE256).setValue(cadence256);
     }
 
     /**
      * @return
      */
     public Integer getFractionalCadence() {
-        final Number value = getFieldToNumber(Fields.FRACTIONAL_CADENCE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.FRACTIONAL_CADENCE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param fractionalCadence
      */
     public void setFractionalCadence(final Integer fractionalCadence) {
-        final Field<?> f = getOrAddField(Fields.FRACTIONAL_CADENCE);
-        f.setValue(fractionalCadence);
+        getOrAddField(Fields.FRACTIONAL_CADENCE).setValue(fractionalCadence);
     }
 
     /**
      * @return
      */
     public Integer getTotalHemoglobinConc() {
-        final Number value = getFieldToNumber(Fields.TOTAL_HEMOGLOBIN_CONC);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TOTAL_HEMOGLOBIN_CONC).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param totalHemoglobinConc
      */
     public void setTotalHemoglobinConc(final Integer totalHemoglobinConc) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_HEMOGLOBIN_CONC);
-        f.setValue(totalHemoglobinConc);
+        getOrAddField(Fields.TOTAL_HEMOGLOBIN_CONC).setValue(totalHemoglobinConc);
     }
 
     /**
      * @return
      */
     public Integer getTotalHemoglobinConcMin() {
-        final Number value = getFieldToNumber(Fields.TOTAL_HEMOGLOBIN_CONC_MIN);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TOTAL_HEMOGLOBIN_CONC_MIN).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param totalHemoglobinConcMin
      */
     public void setTotalHemoglobinConcMin(final Integer totalHemoglobinConcMin) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_HEMOGLOBIN_CONC_MIN);
-        f.setValue(totalHemoglobinConcMin);
+        getOrAddField(Fields.TOTAL_HEMOGLOBIN_CONC_MIN).setValue(totalHemoglobinConcMin);
     }
 
     /**
      * @return
      */
     public Integer getTotalHemoglobinConcMax() {
-        final Number value = getFieldToNumber(Fields.TOTAL_HEMOGLOBIN_CONC_MAX);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TOTAL_HEMOGLOBIN_CONC_MAX).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param totalHemoglobinConcMax
      */
     public void setTotalHemoglobinConcMax(final Integer totalHemoglobinConcMax) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_HEMOGLOBIN_CONC_MAX);
-        f.setValue(totalHemoglobinConcMax);
+        getOrAddField(Fields.TOTAL_HEMOGLOBIN_CONC_MAX).setValue(totalHemoglobinConcMax);
     }
 
     /**
      * @return
      */
     public Integer getSaturatedHemoglobinPercent() {
-        final Number value = getFieldToNumber(Fields.SATURATED_HEMOGLOBIN_PERCENT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SATURATED_HEMOGLOBIN_PERCENT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param saturatedHemoglobinPercent
      */
     public void setSaturatedHemoglobinPercent(final Integer saturatedHemoglobinPercent) {
-        final Field<?> f = getOrAddField(Fields.SATURATED_HEMOGLOBIN_PERCENT);
-        f.setValue(saturatedHemoglobinPercent);
+        getOrAddField(Fields.SATURATED_HEMOGLOBIN_PERCENT).setValue(saturatedHemoglobinPercent);
     }
 
     /**
      * @return
      */
     public Integer getSaturatedHemoglobinPercentMin() {
-        final Number value = getFieldToNumber(Fields.SATURATED_HEMOGLOBIN_PERCENT_MIN);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SATURATED_HEMOGLOBIN_PERCENT_MIN).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param saturatedHemoglobinPercentMin
      */
     public void setSaturatedHemoglobinPercentMin(final Integer saturatedHemoglobinPercentMin) {
-        final Field<?> f = getOrAddField(Fields.SATURATED_HEMOGLOBIN_PERCENT_MIN);
-        f.setValue(saturatedHemoglobinPercentMin);
+        getOrAddField(Fields.SATURATED_HEMOGLOBIN_PERCENT_MIN).setValue(saturatedHemoglobinPercentMin);
     }
 
     /**
      * @return
      */
     public Integer getSaturatedHemoglobinPercentMax() {
-        final Number value = getFieldToNumber(Fields.SATURATED_HEMOGLOBIN_PERCENT_MAX);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SATURATED_HEMOGLOBIN_PERCENT_MAX).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param saturatedHemoglobinPercentMax
      */
     public void setSaturatedHemoglobinPercentMax(final Integer saturatedHemoglobinPercentMax) {
-        final Field<?> f = getOrAddField(Fields.SATURATED_HEMOGLOBIN_PERCENT_MAX);
-        f.setValue(saturatedHemoglobinPercentMax);
+        getOrAddField(Fields.SATURATED_HEMOGLOBIN_PERCENT_MAX).setValue(saturatedHemoglobinPercentMax);
     }
 
     /**
      * @return
      */
     public Integer getDeviceIndex() {
-        final Number value = getFieldToNumber(Fields.DEVICE_INDEX);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.DEVICE_INDEX).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param deviceIndex
      */
     public void setDeviceIndex(final Integer deviceIndex) {
-        final Field<?> f = getOrAddField(Fields.DEVICE_INDEX);
-        f.setValue(deviceIndex);
+        getOrAddField(Fields.DEVICE_INDEX).setValue(deviceIndex);
     }
 
     /**
      * @return
      */
     public Byte getLeftPco() {
-        final Number value = getFieldToNumber(Fields.LEFT_PCO);
-
-        return value != null ? value.byteValue() : null;
+        return getFieldToNumber(Fields.LEFT_PCO).map(Number::byteValue).orElse(null);
     }
 
     /**
      * @param leftPco
      */
     public void setLeftPco(final Byte leftPco) {
-        final Field<?> f = getOrAddField(Fields.LEFT_PCO);
-        f.setValue(leftPco);
+        getOrAddField(Fields.LEFT_PCO).setValue(leftPco);
     }
 
     /**
      * @return
      */
     public Byte getRightPco() {
-        final Number value = getFieldToNumber(Fields.RIGHT_PCO);
-
-        return value != null ? value.byteValue() : null;
+        return getFieldToNumber(Fields.RIGHT_PCO).map(Number::byteValue).orElse(null);
     }
 
     /**
      * @param rightPco
      */
     public void setRightPco(final Byte rightPco) {
-        final Field<?> f = getOrAddField(Fields.RIGHT_PCO);
-        f.setValue(rightPco);
+        getOrAddField(Fields.RIGHT_PCO).setValue(rightPco);
     }
 
     /**
      * @return
      */
     public Integer getLeftPowerPhase() {
-        final Number value = getFieldToNumber(Fields.LEFT_POWER_PHASE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.LEFT_POWER_PHASE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param leftPowerPhase
      */
     public void setLeftPowerPhase(final Integer leftPowerPhase) {
-        final Field<?> f = getOrAddField(Fields.LEFT_POWER_PHASE);
-        f.setValue(leftPowerPhase);
+        getOrAddField(Fields.LEFT_POWER_PHASE).setValue(leftPowerPhase);
     }
 
     /**
      * @return
      */
     public Integer getLeftPowerPhasePeak() {
-        final Number value = getFieldToNumber(Fields.LEFT_POWER_PHASE_PEAK);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.LEFT_POWER_PHASE_PEAK).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param leftPowerPhasePeak
      */
     public void setLeftPowerPhasePeak(final Integer leftPowerPhasePeak) {
-        final Field<?> f = getOrAddField(Fields.LEFT_POWER_PHASE_PEAK);
-        f.setValue(leftPowerPhasePeak);
+        getOrAddField(Fields.LEFT_POWER_PHASE_PEAK).setValue(leftPowerPhasePeak);
     }
 
     /**
      * @return
      */
     public Integer getRightPowerPhase() {
-        final Number value = getFieldToNumber(Fields.RIGHT_POWER_PHASE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.RIGHT_POWER_PHASE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param rightPowerPhase
      */
     public void setRightPowerPhase(final Integer rightPowerPhase) {
-        final Field<?> f = getOrAddField(Fields.RIGHT_POWER_PHASE);
-        f.setValue(rightPowerPhase);
+        getOrAddField(Fields.RIGHT_POWER_PHASE).setValue(rightPowerPhase);
     }
 
     /**
      * @return
      */
     public Integer getRightPowerPhasePeak() {
-        final Number value = getFieldToNumber(Fields.RIGHT_POWER_PHASE_PEAK);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.RIGHT_POWER_PHASE_PEAK).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param rightPowerPhasePeak
      */
     public void setRightPowerPhasePeak(final Integer rightPowerPhasePeak) {
-        final Field<?> f = getOrAddField(Fields.RIGHT_POWER_PHASE_PEAK);
-        f.setValue(rightPowerPhasePeak);
+        getOrAddField(Fields.RIGHT_POWER_PHASE_PEAK).setValue(rightPowerPhasePeak);
     }
 
     /**
      * @return
      */
     public Long getEnhancedSpeed() {
-        final Number value = getFieldToNumber(Fields.ENHANCED_SPEED);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.ENHANCED_SPEED).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param enhancedSpeed
      */
     public void setEnhancedSpeed(final Long enhancedSpeed) {
-        final Field<?> f = getOrAddField(Fields.ENHANCED_SPEED);
-        f.setValue(enhancedSpeed);
+        getOrAddField(Fields.ENHANCED_SPEED).setValue(enhancedSpeed);
     }
 
     /**
      * @return
      */
     public Long getEnhancedAltitude() {
-        final Number value = getFieldToNumber(Fields.ENHANCED_ALTITUDE);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.ENHANCED_ALTITUDE).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param enhancedAltitude
      */
     public void setEnhancedAltitude(final Long enhancedAltitude) {
-        final Field<?> f = getOrAddField(Fields.ENHANCED_ALTITUDE);
-        f.setValue(enhancedAltitude);
+        getOrAddField(Fields.ENHANCED_ALTITUDE).setValue(enhancedAltitude);
     }
 
     /**
      * @return
      */
     public Integer getBatterySoc() {
-        final Number value = getFieldToNumber(Fields.BATTERY_SOC);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.BATTERY_SOC).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param batterySoc
      */
     public void setBatterySoc(final Integer batterySoc) {
-        final Field<?> f = getOrAddField(Fields.BATTERY_SOC);
-        f.setValue(batterySoc);
+        getOrAddField(Fields.BATTERY_SOC).setValue(batterySoc);
     }
 
     /**
      * @return
      */
     public Integer getMotorPower() {
-        final Number value = getFieldToNumber(Fields.MOTOR_POWER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MOTOR_POWER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param motorPower
      */
     public void setMotorPower(final Integer motorPower) {
-        final Field<?> f = getOrAddField(Fields.MOTOR_POWER);
-        f.setValue(motorPower);
+        getOrAddField(Fields.MOTOR_POWER).setValue(motorPower);
     }
 
 }

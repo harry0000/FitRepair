@@ -2,7 +2,6 @@ package com.harry0000.fit.message;
 
 import static com.harry0000.fit.Constants.FIELD_MESSAGE_INDEX;
 
-import com.harry0000.fit.field.Field;
 import com.harry0000.fit.vo.BaseType;
 import com.harry0000.fit.vo.FitMessage;
 
@@ -159,1715 +158,1414 @@ public class Lap extends DataMessage {
      * @return
      */
     public Integer getMessageIndex() {
-        final Number value = getFieldToNumber(FIELD_MESSAGE_INDEX);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(FIELD_MESSAGE_INDEX).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param messageIndex
      */
     public void setMessageIndex(final Integer messageIndex) {
-        final Field<?> f = getOrAddField(FIELD_MESSAGE_INDEX, BaseType.UINT16);
-        f.setValue(messageIndex);
+        getOrAddField(FIELD_MESSAGE_INDEX, BaseType.UINT16).setValue(messageIndex);
     }
 
     /**
      * @return
      */
     public Integer getEvent() {
-        final Number value = getFieldToNumber(Fields.EVENT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.EVENT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param event
      */
     public void setEvent(final Integer event) {
-        final Field<?> f = getOrAddField(Fields.EVENT);
-        f.setValue(event);
+        getOrAddField(Fields.EVENT).setValue(event);
     }
 
     /**
      * @return
      */
     public Integer getEventType() {
-        final Number value = getFieldToNumber(Fields.EVENT_TYPE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.EVENT_TYPE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param eventType
      */
     public void setEventType(final Integer eventType) {
-        final Field<?> f = getOrAddField(Fields.EVENT_TYPE);
-        f.setValue(eventType);
+        getOrAddField(Fields.EVENT_TYPE).setValue(eventType);
     }
 
     /**
      * @return
      */
     public Long getStartTime() {
-        return getFieldToUnixTime(Fields.START_TIME);
+        return getFieldToUnixTime(Fields.START_TIME).orElse(null);
     }
 
     /**
      * @param startTime
      */
     public void setStartTime(final Long startTime) {
-        final Field<?> f = getOrAddField(Fields.START_TIME);
-        f.setValue(toFitTimestamp(startTime));
+        getOrAddField(Fields.START_TIME).setValue(toFitTimestamp(startTime).orElse(null));
     }
 
     /**
      * @return
      */
     public Integer getStartPositionLat() {
-        final Number value = getFieldToNumber(Fields.START_POSITION_LAT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.START_POSITION_LAT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param startPositionLat
      */
     public void setStartPositionLat(final Integer startPositionLat) {
-        final Field<?> f = getOrAddField(Fields.START_POSITION_LAT);
-        f.setValue(startPositionLat);
+        getOrAddField(Fields.START_POSITION_LAT).setValue(startPositionLat);
     }
 
     /**
      * @return
      */
     public Integer getStartPositionLong() {
-        final Number value = getFieldToNumber(Fields.START_POSITION_LONG);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.START_POSITION_LONG).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param startPositionLong
      */
     public void setStartPositionLong(final Integer startPositionLong) {
-        final Field<?> f = getOrAddField(Fields.START_POSITION_LONG);
-        f.setValue(startPositionLong);
+        getOrAddField(Fields.START_POSITION_LONG).setValue(startPositionLong);
     }
 
     /**
      * @return
      */
     public Integer getEndPositionLat() {
-        final Number value = getFieldToNumber(Fields.END_POSITION_LAT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.END_POSITION_LAT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param endPositionLat
      */
     public void setEndPositionLat(final Integer endPositionLat) {
-        final Field<?> f = getOrAddField(Fields.END_POSITION_LAT);
-        f.setValue(endPositionLat);
+        getOrAddField(Fields.END_POSITION_LAT).setValue(endPositionLat);
     }
 
     /**
      * @return
      */
     public Integer getEndPositionLong() {
-        final Number value = getFieldToNumber(Fields.END_POSITION_LONG);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.END_POSITION_LONG).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param endPositionLong
      */
     public void setEndPositionLong(final Integer endPositionLong) {
-        final Field<?> f = getOrAddField(Fields.END_POSITION_LONG);
-        f.setValue(endPositionLong);
+        getOrAddField(Fields.END_POSITION_LONG).setValue(endPositionLong);
     }
 
     /**
      * @return
      */
     public Long getTotalElapsedTime() {
-        final Number value = getFieldToNumber(Fields.TOTAL_ELAPSED_TIME);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TOTAL_ELAPSED_TIME).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param totalElapsedTime
      */
     public void setTotalElapsedTime(final Long totalElapsedTime) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_ELAPSED_TIME);
-        f.setValue(totalElapsedTime);
+        getOrAddField(Fields.TOTAL_ELAPSED_TIME).setValue(totalElapsedTime);
     }
 
     /**
      * @return
      */
     public Long getTotalTimerTime() {
-        final Number value = getFieldToNumber(Fields.TOTAL_TIMER_TIME);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TOTAL_TIMER_TIME).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param totalTimerTime
      */
     public void setTotalTimerTime(final Long totalTimerTime) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_TIMER_TIME);
-        f.setValue(totalTimerTime);
+        getOrAddField(Fields.TOTAL_TIMER_TIME).setValue(totalTimerTime);
     }
 
     /**
      * @return
      */
     public Long getTotalDistance() {
-        final Number value = getFieldToNumber(Fields.TOTAL_DISTANCE);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TOTAL_DISTANCE).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param totalDistance
      */
     public void setTotalDistance(final Long totalDistance) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_DISTANCE);
-        f.setValue(totalDistance);
+        getOrAddField(Fields.TOTAL_DISTANCE).setValue(totalDistance);
     }
 
     /**
      * @return
      */
     public Long getTotalCycles() {
-        final Number value = getFieldToNumber(Fields.TOTAL_CYCLES);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TOTAL_CYCLES).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param totalCycles
      */
     public void setTotalCycles(final Long totalCycles) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_CYCLES);
-        f.setValue(totalCycles);
+        getOrAddField(Fields.TOTAL_CYCLES).setValue(totalCycles);
     }
 
     /**
      * @return
      */
     public Integer getTotalCalories() {
-        final Number value = getFieldToNumber(Fields.TOTAL_CALORIES);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TOTAL_CALORIES).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param totalCalories
      */
     public void setTotalCalories(final Integer totalCalories) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_CALORIES);
-        f.setValue(totalCalories);
+        getOrAddField(Fields.TOTAL_CALORIES).setValue(totalCalories);
     }
 
     /**
      * @return
      */
     public Integer getTotalFatCalories() {
-        final Number value = getFieldToNumber(Fields.TOTAL_FAT_CALORIES);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TOTAL_FAT_CALORIES).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param totalFatCalories
      */
     public void setTotalFatCalories(final Integer totalFatCalories) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_FAT_CALORIES);
-        f.setValue(totalFatCalories);
+        getOrAddField(Fields.TOTAL_FAT_CALORIES).setValue(totalFatCalories);
     }
 
     /**
      * @return
      */
     public Integer getAvgSpeed() {
-        final Number value = getFieldToNumber(Fields.AVG_SPEED);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_SPEED).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgSpeed
      */
     public void setAvgSpeed(final Integer avgSpeed) {
-        final Field<?> f = getOrAddField(Fields.AVG_SPEED);
-        f.setValue(avgSpeed);
+        getOrAddField(Fields.AVG_SPEED).setValue(avgSpeed);
     }
 
     /**
      * @return
      */
     public Integer getMaxSpeed() {
-        final Number value = getFieldToNumber(Fields.MAX_SPEED);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MAX_SPEED).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param maxSpeed
      */
     public void setMaxSpeed(final Integer maxSpeed) {
-        final Field<?> f = getOrAddField(Fields.MAX_SPEED);
-        f.setValue(maxSpeed);
+        getOrAddField(Fields.MAX_SPEED).setValue(maxSpeed);
     }
 
     /**
      * @return
      */
     public Integer getAvgHeartRate() {
-        final Number value = getFieldToNumber(Fields.AVG_HEART_RATE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_HEART_RATE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgHeartRate
      */
     public void setAvgHeartRate(final Integer avgHeartRate) {
-        final Field<?> f = getOrAddField(Fields.AVG_HEART_RATE);
-        f.setValue(avgHeartRate);
+        getOrAddField(Fields.AVG_HEART_RATE).setValue(avgHeartRate);
     }
 
     /**
      * @return
      */
     public Integer getMaxHeartRate() {
-        final Number value = getFieldToNumber(Fields.MAX_HEART_RATE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MAX_HEART_RATE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param maxHeartRate
      */
     public void setMaxHeartRate(final Integer maxHeartRate) {
-        final Field<?> f = getOrAddField(Fields.MAX_HEART_RATE);
-        f.setValue(maxHeartRate);
+        getOrAddField(Fields.MAX_HEART_RATE).setValue(maxHeartRate);
     }
 
     /**
      * @return
      */
     public Integer getAvgCadence() {
-        final Number value = getFieldToNumber(Fields.AVG_CADENCE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_CADENCE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgCadence
      */
     public void setAvgCadence(final Integer avgCadence) {
-        final Field<?> f = getOrAddField(Fields.AVG_CADENCE);
-        f.setValue(avgCadence);
+        getOrAddField(Fields.AVG_CADENCE).setValue(avgCadence);
     }
 
     /**
      * @return
      */
     public Integer getMaxCadence() {
-        final Number value = getFieldToNumber(Fields.MAX_CADENCE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MAX_CADENCE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param maxCadence
      */
     public void setMaxCadence(final Integer maxCadence) {
-        final Field<?> f = getOrAddField(Fields.MAX_CADENCE);
-        f.setValue(maxCadence);
+        getOrAddField(Fields.MAX_CADENCE).setValue(maxCadence);
     }
 
     /**
      * @return
      */
     public Integer getAvgPower() {
-        final Number value = getFieldToNumber(Fields.AVG_POWER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_POWER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgPower
      */
     public void setAvgPower(final Integer avgPower) {
-        final Field<?> f = getOrAddField(Fields.AVG_POWER);
-        f.setValue(avgPower);
+        getOrAddField(Fields.AVG_POWER).setValue(avgPower);
     }
 
     /**
      * @return
      */
     public Integer getMaxPower() {
-        final Number value = getFieldToNumber(Fields.MAX_POWER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MAX_POWER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param maxPower
      */
     public void setMaxPower(final Integer maxPower) {
-        final Field<?> f = getOrAddField(Fields.MAX_POWER);
-        f.setValue(maxPower);
+        getOrAddField(Fields.MAX_POWER).setValue(maxPower);
     }
 
     /**
      * @return
      */
     public Integer getTotalAscent() {
-        final Number value = getFieldToNumber(Fields.TOTAL_ASCENT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TOTAL_ASCENT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param totalAscent
      */
     public void setTotalAscent(final Integer totalAscent) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_ASCENT);
-        f.setValue(totalAscent);
+        getOrAddField(Fields.TOTAL_ASCENT).setValue(totalAscent);
     }
 
     /**
      * @return
      */
     public Integer getTotalDescent() {
-        final Number value = getFieldToNumber(Fields.TOTAL_DESCENT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TOTAL_DESCENT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param totalDescent
      */
     public void setTotalDescent(final Integer totalDescent) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_DESCENT);
-        f.setValue(totalDescent);
+        getOrAddField(Fields.TOTAL_DESCENT).setValue(totalDescent);
     }
 
     /**
      * @return
      */
     public Integer getIntensity() {
-        final Number value = getFieldToNumber(Fields.INTENSITY);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.INTENSITY).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param intensity
      */
     public void setIntensity(final Integer intensity) {
-        final Field<?> f = getOrAddField(Fields.INTENSITY);
-        f.setValue(intensity);
+        getOrAddField(Fields.INTENSITY).setValue(intensity);
     }
 
     /**
      * @return
      */
     public Integer getLapTrigger() {
-        final Number value = getFieldToNumber(Fields.LAP_TRIGGER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.LAP_TRIGGER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param lapTrigger
      */
     public void setLapTrigger(final Integer lapTrigger) {
-        final Field<?> f = getOrAddField(Fields.LAP_TRIGGER);
-        f.setValue(lapTrigger);
+        getOrAddField(Fields.LAP_TRIGGER).setValue(lapTrigger);
     }
 
     /**
      * @return
      */
     public Integer getSport() {
-        final Number value = getFieldToNumber(Fields.SPORT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SPORT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param sport
      */
     public void setSport(final Integer sport) {
-        final Field<?> f = getOrAddField(Fields.SPORT);
-        f.setValue(sport);
+        getOrAddField(Fields.SPORT).setValue(sport);
     }
 
     /**
      * @return
      */
     public Integer getEventGroup() {
-        final Number value = getFieldToNumber(Fields.EVENT_GROUP);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.EVENT_GROUP).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param eventGroup
      */
     public void setEventGroup(final Integer eventGroup) {
-        final Field<?> f = getOrAddField(Fields.EVENT_GROUP);
-        f.setValue(eventGroup);
+        getOrAddField(Fields.EVENT_GROUP).setValue(eventGroup);
     }
 
     /**
      * @return
      */
     public Integer getNumLengths() {
-        final Number value = getFieldToNumber(Fields.NUM_LENGTHS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.NUM_LENGTHS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param numLengths
      */
     public void setNumLengths(final Integer numLengths) {
-        final Field<?> f = getOrAddField(Fields.NUM_LENGTHS);
-        f.setValue(numLengths);
+        getOrAddField(Fields.NUM_LENGTHS).setValue(numLengths);
     }
 
     /**
      * @return
      */
     public Integer getNormalizedPower() {
-        final Number value = getFieldToNumber(Fields.NORMALIZED_POWER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.NORMALIZED_POWER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param normalizedPower
      */
     public void setNormalizedPower(final Integer normalizedPower) {
-        final Field<?> f = getOrAddField(Fields.NORMALIZED_POWER);
-        f.setValue(normalizedPower);
+        getOrAddField(Fields.NORMALIZED_POWER).setValue(normalizedPower);
     }
 
     /**
      * @return
      */
     public Integer getLeftRightBalance() {
-        final Number value = getFieldToNumber(Fields.LEFT_RIGHT_BALANCE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.LEFT_RIGHT_BALANCE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param leftRightBalance
      */
     public void setLeftRightBalance(final Integer leftRightBalance) {
-        final Field<?> f = getOrAddField(Fields.LEFT_RIGHT_BALANCE);
-        f.setValue(leftRightBalance);
+        getOrAddField(Fields.LEFT_RIGHT_BALANCE).setValue(leftRightBalance);
     }
 
     /**
      * @return
      */
     public Integer getFirstLengthIndex() {
-        final Number value = getFieldToNumber(Fields.FIRST_LENGTH_INDEX);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.FIRST_LENGTH_INDEX).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param firstLengthIndex
      */
     public void setFirstLengthIndex(final Integer firstLengthIndex) {
-        final Field<?> f = getOrAddField(Fields.FIRST_LENGTH_INDEX);
-        f.setValue(firstLengthIndex);
+        getOrAddField(Fields.FIRST_LENGTH_INDEX).setValue(firstLengthIndex);
     }
 
     /**
      * @return
      */
     public Integer getAvgStrokeDistance() {
-        final Number value = getFieldToNumber(Fields.AVG_STROKE_DISTANCE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_STROKE_DISTANCE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgStrokeDistance
      */
     public void setAvgStrokeDistance(final Integer avgStrokeDistance) {
-        final Field<?> f = getOrAddField(Fields.AVG_STROKE_DISTANCE);
-        f.setValue(avgStrokeDistance);
+        getOrAddField(Fields.AVG_STROKE_DISTANCE).setValue(avgStrokeDistance);
     }
 
     /**
      * @return
      */
     public Integer getSwimStroke() {
-        final Number value = getFieldToNumber(Fields.SWIM_STROKE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SWIM_STROKE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param swimStroke
      */
     public void setSwimStroke(final Integer swimStroke) {
-        final Field<?> f = getOrAddField(Fields.SWIM_STROKE);
-        f.setValue(swimStroke);
+        getOrAddField(Fields.SWIM_STROKE).setValue(swimStroke);
     }
 
     /**
      * @return
      */
     public Integer getSubSport() {
-        final Number value = getFieldToNumber(Fields.SUB_SPORT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SUB_SPORT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param subSport
      */
     public void setSubSport(final Integer subSport) {
-        final Field<?> f = getOrAddField(Fields.SUB_SPORT);
-        f.setValue(subSport);
+        getOrAddField(Fields.SUB_SPORT).setValue(subSport);
     }
 
     /**
      * @return
      */
     public Integer getNumActiveLengths() {
-        final Number value = getFieldToNumber(Fields.NUM_ACTIVE_LENGTHS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.NUM_ACTIVE_LENGTHS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param numActiveLengths
      */
     public void setNumActiveLengths(final Integer numActiveLengths) {
-        final Field<?> f = getOrAddField(Fields.NUM_ACTIVE_LENGTHS);
-        f.setValue(numActiveLengths);
+        getOrAddField(Fields.NUM_ACTIVE_LENGTHS).setValue(numActiveLengths);
     }
 
     /**
      * @return
      */
     public Long getTotalWork() {
-        final Number value = getFieldToNumber(Fields.TOTAL_WORK);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TOTAL_WORK).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param totalWork
      */
     public void setTotalWork(final Long totalWork) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_WORK);
-        f.setValue(totalWork);
+        getOrAddField(Fields.TOTAL_WORK).setValue(totalWork);
     }
 
     /**
      * @return
      */
     public Integer getAvgAltitude() {
-        final Number value = getFieldToNumber(Fields.AVG_ALTITUDE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_ALTITUDE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgAltitude
      */
     public void setAvgAltitude(final Integer avgAltitude) {
-        final Field<?> f = getOrAddField(Fields.AVG_ALTITUDE);
-        f.setValue(avgAltitude);
+        getOrAddField(Fields.AVG_ALTITUDE).setValue(avgAltitude);
     }
 
     /**
      * @return
      */
     public Integer getMaxAltitude() {
-        final Number value = getFieldToNumber(Fields.MAX_ALTITUDE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MAX_ALTITUDE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param maxAltitude
      */
     public void setMaxAltitude(final Integer maxAltitude) {
-        final Field<?> f = getOrAddField(Fields.MAX_ALTITUDE);
-        f.setValue(maxAltitude);
+        getOrAddField(Fields.MAX_ALTITUDE).setValue(maxAltitude);
     }
 
     /**
      * @return
      */
     public Integer getGpsAccuracy() {
-        final Number value = getFieldToNumber(Fields.GPS_ACCURACY);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.GPS_ACCURACY).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param gpsAccuracy
      */
     public void setGpsAccuracy(final Integer gpsAccuracy) {
-        final Field<?> f = getOrAddField(Fields.GPS_ACCURACY);
-        f.setValue(gpsAccuracy);
+        getOrAddField(Fields.GPS_ACCURACY).setValue(gpsAccuracy);
     }
 
     /**
      * @return
      */
     public Short getAvgGrade() {
-        final Number value = getFieldToNumber(Fields.AVG_GRADE);
-
-        return value != null ? value.shortValue() : null;
+        return getFieldToNumber(Fields.AVG_GRADE).map(Number::shortValue).orElse(null);
     }
 
     /**
      * @param avgGrade
      */
     public void setAvgGrade(final Short avgGrade) {
-        final Field<?> f = getOrAddField(Fields.AVG_GRADE);
-        f.setValue(avgGrade);
+        getOrAddField(Fields.AVG_GRADE).setValue(avgGrade);
     }
 
     /**
      * @return
      */
     public Short getAvgPosGrade() {
-        final Number value = getFieldToNumber(Fields.AVG_POS_GRADE);
-
-        return value != null ? value.shortValue() : null;
+        return getFieldToNumber(Fields.AVG_POS_GRADE).map(Number::shortValue).orElse(null);
     }
 
     /**
      * @param avgPosGrade
      */
     public void setAvgPosGrade(final Short avgPosGrade) {
-        final Field<?> f = getOrAddField(Fields.AVG_POS_GRADE);
-        f.setValue(avgPosGrade);
+        getOrAddField(Fields.AVG_POS_GRADE).setValue(avgPosGrade);
     }
 
     /**
      * @return
      */
     public Short getAvgNegGrade() {
-        final Number value = getFieldToNumber(Fields.AVG_NEG_GRADE);
-
-        return value != null ? value.shortValue() : null;
+        return getFieldToNumber(Fields.AVG_NEG_GRADE).map(Number::shortValue).orElse(null);
     }
 
     /**
      * @param avgNegGrade
      */
     public void setAvgNegGrade(final Short avgNegGrade) {
-        final Field<?> f = getOrAddField(Fields.AVG_NEG_GRADE);
-        f.setValue(avgNegGrade);
+        getOrAddField(Fields.AVG_NEG_GRADE).setValue(avgNegGrade);
     }
 
     /**
      * @return
      */
     public Short getMaxPosGrade() {
-        final Number value = getFieldToNumber(Fields.MAX_POS_GRADE);
-
-        return value != null ? value.shortValue() : null;
+        return getFieldToNumber(Fields.MAX_POS_GRADE).map(Number::shortValue).orElse(null);
     }
 
     /**
      * @param maxPosGrade
      */
     public void setMaxPosGrade(final Short maxPosGrade) {
-        final Field<?> f = getOrAddField(Fields.MAX_POS_GRADE);
-        f.setValue(maxPosGrade);
+        getOrAddField(Fields.MAX_POS_GRADE).setValue(maxPosGrade);
     }
 
     /**
      * @return
      */
     public Short getMaxNegGrade() {
-        final Number value = getFieldToNumber(Fields.MAX_NEG_GRADE);
-
-        return value != null ? value.shortValue() : null;
+        return getFieldToNumber(Fields.MAX_NEG_GRADE).map(Number::shortValue).orElse(null);
     }
 
     /**
      * @param maxNegGrade
      */
     public void setMaxNegGrade(final Short maxNegGrade) {
-        final Field<?> f = getOrAddField(Fields.MAX_NEG_GRADE);
-        f.setValue(maxNegGrade);
+        getOrAddField(Fields.MAX_NEG_GRADE).setValue(maxNegGrade);
     }
 
     /**
      * @return
      */
     public Byte getAvgTemperature() {
-        final Number value = getFieldToNumber(Fields.AVG_TEMPERATURE);
-
-        return value != null ? value.byteValue() : null;
+        return getFieldToNumber(Fields.AVG_TEMPERATURE).map(Number::byteValue).orElse(null);
     }
 
     /**
      * @param avgTemperature
      */
     public void setAvgTemperature(final Byte avgTemperature) {
-        final Field<?> f = getOrAddField(Fields.AVG_TEMPERATURE);
-        f.setValue(avgTemperature);
+        getOrAddField(Fields.AVG_TEMPERATURE).setValue(avgTemperature);
     }
 
     /**
      * @return
      */
     public Byte getMaxTemperature() {
-        final Number value = getFieldToNumber(Fields.MAX_TEMPERATURE);
-
-        return value != null ? value.byteValue() : null;
+        return getFieldToNumber(Fields.MAX_TEMPERATURE).map(Number::byteValue).orElse(null);
     }
 
     /**
      * @param maxTemperature
      */
     public void setMaxTemperature(final Byte maxTemperature) {
-        final Field<?> f = getOrAddField(Fields.MAX_TEMPERATURE);
-        f.setValue(maxTemperature);
+        getOrAddField(Fields.MAX_TEMPERATURE).setValue(maxTemperature);
     }
 
     /**
      * @return
      */
     public Long getTotalMovingTime() {
-        final Number value = getFieldToNumber(Fields.TOTAL_MOVING_TIME);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TOTAL_MOVING_TIME).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param totalMovingTime
      */
     public void setTotalMovingTime(final Long totalMovingTime) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_MOVING_TIME);
-        f.setValue(totalMovingTime);
+        getOrAddField(Fields.TOTAL_MOVING_TIME).setValue(totalMovingTime);
     }
 
     /**
      * @return
      */
     public Short getAvgPosVerticalSpeed() {
-        final Number value = getFieldToNumber(Fields.AVG_POS_VERTICAL_SPEED);
-
-        return value != null ? value.shortValue() : null;
+        return getFieldToNumber(Fields.AVG_POS_VERTICAL_SPEED).map(Number::shortValue).orElse(null);
     }
 
     /**
      * @param avgPosVerticalSpeed
      */
     public void setAvgPosVerticalSpeed(final Short avgPosVerticalSpeed) {
-        final Field<?> f = getOrAddField(Fields.AVG_POS_VERTICAL_SPEED);
-        f.setValue(avgPosVerticalSpeed);
+        getOrAddField(Fields.AVG_POS_VERTICAL_SPEED).setValue(avgPosVerticalSpeed);
     }
 
     /**
      * @return
      */
     public Short getAvgNegVerticalSpeed() {
-        final Number value = getFieldToNumber(Fields.AVG_NEG_VERTICAL_SPEED);
-
-        return value != null ? value.shortValue() : null;
+        return getFieldToNumber(Fields.AVG_NEG_VERTICAL_SPEED).map(Number::shortValue).orElse(null);
     }
 
     /**
      * @param avgNegVerticalSpeed
      */
     public void setAvgNegVerticalSpeed(final Short avgNegVerticalSpeed) {
-        final Field<?> f = getOrAddField(Fields.AVG_NEG_VERTICAL_SPEED);
-        f.setValue(avgNegVerticalSpeed);
+        getOrAddField(Fields.AVG_NEG_VERTICAL_SPEED).setValue(avgNegVerticalSpeed);
     }
 
     /**
      * @return
      */
     public Short getMaxPosVerticalSpeed() {
-        final Number value = getFieldToNumber(Fields.MAX_POS_VERTICAL_SPEED);
-
-        return value != null ? value.shortValue() : null;
+        return getFieldToNumber(Fields.MAX_POS_VERTICAL_SPEED).map(Number::shortValue).orElse(null);
     }
 
     /**
      * @param maxPosVerticalSpeed
      */
     public void setMaxPosVerticalSpeed(final Short maxPosVerticalSpeed) {
-        final Field<?> f = getOrAddField(Fields.MAX_POS_VERTICAL_SPEED);
-        f.setValue(maxPosVerticalSpeed);
+        getOrAddField(Fields.MAX_POS_VERTICAL_SPEED).setValue(maxPosVerticalSpeed);
     }
 
     /**
      * @return
      */
     public Short getMaxNegVerticalSpeed() {
-        final Number value = getFieldToNumber(Fields.MAX_NEG_VERTICAL_SPEED);
-
-        return value != null ? value.shortValue() : null;
+        return getFieldToNumber(Fields.MAX_NEG_VERTICAL_SPEED).map(Number::shortValue).orElse(null);
     }
 
     /**
      * @param maxNegVerticalSpeed
      */
     public void setMaxNegVerticalSpeed(final Short maxNegVerticalSpeed) {
-        final Field<?> f = getOrAddField(Fields.MAX_NEG_VERTICAL_SPEED);
-        f.setValue(maxNegVerticalSpeed);
+        getOrAddField(Fields.MAX_NEG_VERTICAL_SPEED).setValue(maxNegVerticalSpeed);
     }
 
     /**
      * @return
      */
     public Long getTimeInHrZone() {
-        final Number value = getFieldToNumber(Fields.TIME_IN_HR_ZONE);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TIME_IN_HR_ZONE).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param timeInHrZone
      */
     public void setTimeInHrZone(final Long timeInHrZone) {
-        final Field<?> f = getOrAddField(Fields.TIME_IN_HR_ZONE);
-        f.setValue(timeInHrZone);
+        getOrAddField(Fields.TIME_IN_HR_ZONE).setValue(timeInHrZone);
     }
 
     /**
      * @return
      */
     public Long getTimeInSpeedZone() {
-        final Number value = getFieldToNumber(Fields.TIME_IN_SPEED_ZONE);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TIME_IN_SPEED_ZONE).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param timeInSpeedZone
      */
     public void setTimeInSpeedZone(final Long timeInSpeedZone) {
-        final Field<?> f = getOrAddField(Fields.TIME_IN_SPEED_ZONE);
-        f.setValue(timeInSpeedZone);
+        getOrAddField(Fields.TIME_IN_SPEED_ZONE).setValue(timeInSpeedZone);
     }
 
     /**
      * @return
      */
     public Long getTimeInCadenceZone() {
-        final Number value = getFieldToNumber(Fields.TIME_IN_CADENCE_ZONE);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TIME_IN_CADENCE_ZONE).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param timeInCadenceZone
      */
     public void setTimeInCadenceZone(final Long timeInCadenceZone) {
-        final Field<?> f = getOrAddField(Fields.TIME_IN_CADENCE_ZONE);
-        f.setValue(timeInCadenceZone);
+        getOrAddField(Fields.TIME_IN_CADENCE_ZONE).setValue(timeInCadenceZone);
     }
 
     /**
      * @return
      */
     public Long getTimeInPowerZone() {
-        final Number value = getFieldToNumber(Fields.TIME_IN_POWER_ZONE);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TIME_IN_POWER_ZONE).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param timeInPowerZone
      */
     public void setTimeInPowerZone(final Long timeInPowerZone) {
-        final Field<?> f = getOrAddField(Fields.TIME_IN_POWER_ZONE);
-        f.setValue(timeInPowerZone);
+        getOrAddField(Fields.TIME_IN_POWER_ZONE).setValue(timeInPowerZone);
     }
 
     /**
      * @return
      */
     public Integer getRepetitionNum() {
-        final Number value = getFieldToNumber(Fields.REPETITION_NUM);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.REPETITION_NUM).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param repetitionNum
      */
     public void setRepetitionNum(final Integer repetitionNum) {
-        final Field<?> f = getOrAddField(Fields.REPETITION_NUM);
-        f.setValue(repetitionNum);
+        getOrAddField(Fields.REPETITION_NUM).setValue(repetitionNum);
     }
 
     /**
      * @return
      */
     public Integer getMinAltitude() {
-        final Number value = getFieldToNumber(Fields.MIN_ALTITUDE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MIN_ALTITUDE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param minAltitude
      */
     public void setMinAltitude(final Integer minAltitude) {
-        final Field<?> f = getOrAddField(Fields.MIN_ALTITUDE);
-        f.setValue(minAltitude);
+        getOrAddField(Fields.MIN_ALTITUDE).setValue(minAltitude);
     }
 
     /**
      * @return
      */
     public Integer getMinHeartRate() {
-        final Number value = getFieldToNumber(Fields.MIN_HEART_RATE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MIN_HEART_RATE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param minHeartRate
      */
     public void setMinHeartRate(final Integer minHeartRate) {
-        final Field<?> f = getOrAddField(Fields.MIN_HEART_RATE);
-        f.setValue(minHeartRate);
+        getOrAddField(Fields.MIN_HEART_RATE).setValue(minHeartRate);
     }
 
     /**
      * @return
      */
     public Integer getWktStepIndex() {
-        final Number value = getFieldToNumber(Fields.WKT_STEP_INDEX);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.WKT_STEP_INDEX).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param wktStepIndex
      */
     public void setWktStepIndex(final Integer wktStepIndex) {
-        final Field<?> f = getOrAddField(Fields.WKT_STEP_INDEX);
-        f.setValue(wktStepIndex);
+        getOrAddField(Fields.WKT_STEP_INDEX).setValue(wktStepIndex);
     }
 
     /**
      * @return
      */
     public Integer getOpponentScore() {
-        final Number value = getFieldToNumber(Fields.OPPONENT_SCORE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.OPPONENT_SCORE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param opponentScore
      */
     public void setOpponentScore(final Integer opponentScore) {
-        final Field<?> f = getOrAddField(Fields.OPPONENT_SCORE);
-        f.setValue(opponentScore);
+        getOrAddField(Fields.OPPONENT_SCORE).setValue(opponentScore);
     }
 
     /**
      * @return
      */
     public Integer getStrokeCount() {
-        final Number value = getFieldToNumber(Fields.STROKE_COUNT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.STROKE_COUNT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param strokeCount
      */
     public void setStrokeCount(final Integer strokeCount) {
-        final Field<?> f = getOrAddField(Fields.STROKE_COUNT);
-        f.setValue(strokeCount);
+        getOrAddField(Fields.STROKE_COUNT).setValue(strokeCount);
     }
 
     /**
      * @return
      */
     public Integer getZoneCount() {
-        final Number value = getFieldToNumber(Fields.ZONE_COUNT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.ZONE_COUNT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param zoneCount
      */
     public void setZoneCount(final Integer zoneCount) {
-        final Field<?> f = getOrAddField(Fields.ZONE_COUNT);
-        f.setValue(zoneCount);
+        getOrAddField(Fields.ZONE_COUNT).setValue(zoneCount);
     }
 
     /**
      * @return
      */
     public Integer getAvgVerticalOscillation() {
-        final Number value = getFieldToNumber(Fields.AVG_VERTICAL_OSCILLATION);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_VERTICAL_OSCILLATION).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgVerticalOscillation
      */
     public void setAvgVerticalOscillation(final Integer avgVerticalOscillation) {
-        final Field<?> f = getOrAddField(Fields.AVG_VERTICAL_OSCILLATION);
-        f.setValue(avgVerticalOscillation);
+        getOrAddField(Fields.AVG_VERTICAL_OSCILLATION).setValue(avgVerticalOscillation);
     }
 
     /**
      * @return
      */
     public Integer getAvgStanceTimePercent() {
-        final Number value = getFieldToNumber(Fields.AVG_STANCE_TIME_PERCENT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_STANCE_TIME_PERCENT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgStanceTimePercent
      */
     public void setAvgStanceTimePercent(final Integer avgStanceTimePercent) {
-        final Field<?> f = getOrAddField(Fields.AVG_STANCE_TIME_PERCENT);
-        f.setValue(avgStanceTimePercent);
+        getOrAddField(Fields.AVG_STANCE_TIME_PERCENT).setValue(avgStanceTimePercent);
     }
 
     /**
      * @return
      */
     public Integer getAvgStanceTime() {
-        final Number value = getFieldToNumber(Fields.AVG_STANCE_TIME);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_STANCE_TIME).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgStanceTime
      */
     public void setAvgStanceTime(final Integer avgStanceTime) {
-        final Field<?> f = getOrAddField(Fields.AVG_STANCE_TIME);
-        f.setValue(avgStanceTime);
+        getOrAddField(Fields.AVG_STANCE_TIME).setValue(avgStanceTime);
     }
 
     /**
      * @return
      */
     public Integer getAvgFractionalCadence() {
-        final Number value = getFieldToNumber(Fields.AVG_FRACTIONAL_CADENCE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_FRACTIONAL_CADENCE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgFractionalCadence
      */
     public void setAvgFractionalCadence(final Integer avgFractionalCadence) {
-        final Field<?> f = getOrAddField(Fields.AVG_FRACTIONAL_CADENCE);
-        f.setValue(avgFractionalCadence);
+        getOrAddField(Fields.AVG_FRACTIONAL_CADENCE).setValue(avgFractionalCadence);
     }
 
     /**
      * @return
      */
     public Integer getMaxFractionalCadence() {
-        final Number value = getFieldToNumber(Fields.MAX_FRACTIONAL_CADENCE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MAX_FRACTIONAL_CADENCE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param maxFractionalCadence
      */
     public void setMaxFractionalCadence(final Integer maxFractionalCadence) {
-        final Field<?> f = getOrAddField(Fields.MAX_FRACTIONAL_CADENCE);
-        f.setValue(maxFractionalCadence);
+        getOrAddField(Fields.MAX_FRACTIONAL_CADENCE).setValue(maxFractionalCadence);
     }
 
     /**
      * @return
      */
     public Integer getTotalFractionalCycles() {
-        final Number value = getFieldToNumber(Fields.TOTAL_FRACTIONAL_CYCLES);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.TOTAL_FRACTIONAL_CYCLES).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param totalFractionalCycles
      */
     public void setTotalFractionalCycles(final Integer totalFractionalCycles) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_FRACTIONAL_CYCLES);
-        f.setValue(totalFractionalCycles);
+        getOrAddField(Fields.TOTAL_FRACTIONAL_CYCLES).setValue(totalFractionalCycles);
     }
 
     /**
      * @return
      */
     public Integer getPlayerScore() {
-        final Number value = getFieldToNumber(Fields.PLAYER_SCORE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.PLAYER_SCORE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param playerScore
      */
     public void setPlayerScore(final Integer playerScore) {
-        final Field<?> f = getOrAddField(Fields.PLAYER_SCORE);
-        f.setValue(playerScore);
+        getOrAddField(Fields.PLAYER_SCORE).setValue(playerScore);
     }
 
     /**
      * @return
      */
     public Integer getAvgTotalHemoglobinConc() {
-        final Number value = getFieldToNumber(Fields.AVG_TOTAL_HEMOGLOBIN_CONC);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_TOTAL_HEMOGLOBIN_CONC).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgTotalHemoglobinConc
      */
     public void setAvgTotalHemoglobinConc(final Integer avgTotalHemoglobinConc) {
-        final Field<?> f = getOrAddField(Fields.AVG_TOTAL_HEMOGLOBIN_CONC);
-        f.setValue(avgTotalHemoglobinConc);
+        getOrAddField(Fields.AVG_TOTAL_HEMOGLOBIN_CONC).setValue(avgTotalHemoglobinConc);
     }
 
     /**
      * @return
      */
     public Integer getMinTotalHemoglobinConc() {
-        final Number value = getFieldToNumber(Fields.MIN_TOTAL_HEMOGLOBIN_CONC);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MIN_TOTAL_HEMOGLOBIN_CONC).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param minTotalHemoglobinConc
      */
     public void setMinTotalHemoglobinConc(final Integer minTotalHemoglobinConc) {
-        final Field<?> f = getOrAddField(Fields.MIN_TOTAL_HEMOGLOBIN_CONC);
-        f.setValue(minTotalHemoglobinConc);
+        getOrAddField(Fields.MIN_TOTAL_HEMOGLOBIN_CONC).setValue(minTotalHemoglobinConc);
     }
 
     /**
      * @return
      */
     public Integer getMaxTotalHemoglobinConc() {
-        final Number value = getFieldToNumber(Fields.MAX_TOTAL_HEMOGLOBIN_CONC);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MAX_TOTAL_HEMOGLOBIN_CONC).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param maxTotalHemoglobinConc
      */
     public void setMaxTotalHemoglobinConc(final Integer maxTotalHemoglobinConc) {
-        final Field<?> f = getOrAddField(Fields.MAX_TOTAL_HEMOGLOBIN_CONC);
-        f.setValue(maxTotalHemoglobinConc);
+        getOrAddField(Fields.MAX_TOTAL_HEMOGLOBIN_CONC).setValue(maxTotalHemoglobinConc);
     }
 
     /**
      * @return
      */
     public Integer getAvgSaturatedHemoglobinPercent() {
-        final Number value = getFieldToNumber(Fields.AVG_SATURATED_HEMOGLOBIN_PERCENT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_SATURATED_HEMOGLOBIN_PERCENT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgSaturatedHemoglobinPercent
      */
     public void setAvgSaturatedHemoglobinPercent(final Integer avgSaturatedHemoglobinPercent) {
-        final Field<?> f = getOrAddField(Fields.AVG_SATURATED_HEMOGLOBIN_PERCENT);
-        f.setValue(avgSaturatedHemoglobinPercent);
+        getOrAddField(Fields.AVG_SATURATED_HEMOGLOBIN_PERCENT).setValue(avgSaturatedHemoglobinPercent);
     }
 
     /**
      * @return
      */
     public Integer getMinSaturatedHemoglobinPercent() {
-        final Number value = getFieldToNumber(Fields.MIN_SATURATED_HEMOGLOBIN_PERCENT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MIN_SATURATED_HEMOGLOBIN_PERCENT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param minSaturatedHemoglobinPercent
      */
     public void setMinSaturatedHemoglobinPercent(final Integer minSaturatedHemoglobinPercent) {
-        final Field<?> f = getOrAddField(Fields.MIN_SATURATED_HEMOGLOBIN_PERCENT);
-        f.setValue(minSaturatedHemoglobinPercent);
+        getOrAddField(Fields.MIN_SATURATED_HEMOGLOBIN_PERCENT).setValue(minSaturatedHemoglobinPercent);
     }
 
     /**
      * @return
      */
     public Integer getMaxSaturatedHemoglobinPercent() {
-        final Number value = getFieldToNumber(Fields.MAX_SATURATED_HEMOGLOBIN_PERCENT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MAX_SATURATED_HEMOGLOBIN_PERCENT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param maxSaturatedHemoglobinPercent
      */
     public void setMaxSaturatedHemoglobinPercent(final Integer maxSaturatedHemoglobinPercent) {
-        final Field<?> f = getOrAddField(Fields.MAX_SATURATED_HEMOGLOBIN_PERCENT);
-        f.setValue(maxSaturatedHemoglobinPercent);
+        getOrAddField(Fields.MAX_SATURATED_HEMOGLOBIN_PERCENT).setValue(maxSaturatedHemoglobinPercent);
     }
 
     /**
      * @return
      */
     public Integer getAvgLeftTorqueEffectiveness() {
-        final Number value = getFieldToNumber(Fields.AVG_LEFT_TORQUE_EFFECTIVENESS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_LEFT_TORQUE_EFFECTIVENESS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgLeftTorqueEffectiveness
      */
     public void setAvgLeftTorqueEffectiveness(final Integer avgLeftTorqueEffectiveness) {
-        final Field<?> f = getOrAddField(Fields.AVG_LEFT_TORQUE_EFFECTIVENESS);
-        f.setValue(avgLeftTorqueEffectiveness);
+        getOrAddField(Fields.AVG_LEFT_TORQUE_EFFECTIVENESS).setValue(avgLeftTorqueEffectiveness);
     }
 
     /**
      * @return
      */
     public Integer getAvgRightTorqueEffectiveness() {
-        final Number value = getFieldToNumber(Fields.AVG_RIGHT_TORQUE_EFFECTIVENESS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_RIGHT_TORQUE_EFFECTIVENESS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgRightTorqueEffectiveness
      */
     public void setAvgRightTorqueEffectiveness(final Integer avgRightTorqueEffectiveness) {
-        final Field<?> f = getOrAddField(Fields.AVG_RIGHT_TORQUE_EFFECTIVENESS);
-        f.setValue(avgRightTorqueEffectiveness);
+        getOrAddField(Fields.AVG_RIGHT_TORQUE_EFFECTIVENESS).setValue(avgRightTorqueEffectiveness);
     }
 
     /**
      * @return
      */
     public Integer getAvgLeftPedalSmoothness() {
-        final Number value = getFieldToNumber(Fields.AVG_LEFT_PEDAL_SMOOTHNESS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_LEFT_PEDAL_SMOOTHNESS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgLeftPedalSmoothness
      */
     public void setAvgLeftPedalSmoothness(final Integer avgLeftPedalSmoothness) {
-        final Field<?> f = getOrAddField(Fields.AVG_LEFT_PEDAL_SMOOTHNESS);
-        f.setValue(avgLeftPedalSmoothness);
+        getOrAddField(Fields.AVG_LEFT_PEDAL_SMOOTHNESS).setValue(avgLeftPedalSmoothness);
     }
 
     /**
      * @return
      */
     public Integer getAvgRightPedalSmoothness() {
-        final Number value = getFieldToNumber(Fields.AVG_RIGHT_PEDAL_SMOOTHNESS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_RIGHT_PEDAL_SMOOTHNESS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgRightPedalSmoothness
      */
     public void setAvgRightPedalSmoothness(final Integer avgRightPedalSmoothness) {
-        final Field<?> f = getOrAddField(Fields.AVG_RIGHT_PEDAL_SMOOTHNESS);
-        f.setValue(avgRightPedalSmoothness);
+        getOrAddField(Fields.AVG_RIGHT_PEDAL_SMOOTHNESS).setValue(avgRightPedalSmoothness);
     }
 
     /**
      * @return
      */
     public Integer getAvgCombinedPedalSmoothness() {
-        final Number value = getFieldToNumber(Fields.AVG_COMBINED_PEDAL_SMOOTHNESS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_COMBINED_PEDAL_SMOOTHNESS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgCombinedPedalSmoothness
      */
     public void setAvgCombinedPedalSmoothness(final Integer avgCombinedPedalSmoothness) {
-        final Field<?> f = getOrAddField(Fields.AVG_COMBINED_PEDAL_SMOOTHNESS);
-        f.setValue(avgCombinedPedalSmoothness);
+        getOrAddField(Fields.AVG_COMBINED_PEDAL_SMOOTHNESS).setValue(avgCombinedPedalSmoothness);
     }
 
     /**
      * @return
      */
     public Long getTimeStanding() {
-        final Number value = getFieldToNumber(Fields.TIME_STANDING);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TIME_STANDING).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param timeStanding
      */
     public void setTimeStanding(final Long timeStanding) {
-        final Field<?> f = getOrAddField(Fields.TIME_STANDING);
-        f.setValue(timeStanding);
+        getOrAddField(Fields.TIME_STANDING).setValue(timeStanding);
     }
 
     /**
      * @return
      */
     public Integer getStandCount() {
-        final Number value = getFieldToNumber(Fields.STAND_COUNT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.STAND_COUNT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param standCount
      */
     public void setStandCount(final Integer standCount) {
-        final Field<?> f = getOrAddField(Fields.STAND_COUNT);
-        f.setValue(standCount);
+        getOrAddField(Fields.STAND_COUNT).setValue(standCount);
     }
 
     /**
      * @return
      */
     public Byte getAvgLeftPco() {
-        final Number value = getFieldToNumber(Fields.AVG_LEFT_PCO);
-
-        return value != null ? value.byteValue() : null;
+        return getFieldToNumber(Fields.AVG_LEFT_PCO).map(Number::byteValue).orElse(null);
     }
 
     /**
      * @param avgLeftPco
      */
     public void setAvgLeftPco(final Byte avgLeftPco) {
-        final Field<?> f = getOrAddField(Fields.AVG_LEFT_PCO);
-        f.setValue(avgLeftPco);
+        getOrAddField(Fields.AVG_LEFT_PCO).setValue(avgLeftPco);
     }
 
     /**
      * @return
      */
     public Byte getAvgRightPco() {
-        final Number value = getFieldToNumber(Fields.AVG_RIGHT_PCO);
-
-        return value != null ? value.byteValue() : null;
+        return getFieldToNumber(Fields.AVG_RIGHT_PCO).map(Number::byteValue).orElse(null);
     }
 
     /**
      * @param avgRightPco
      */
     public void setAvgRightPco(final Byte avgRightPco) {
-        final Field<?> f = getOrAddField(Fields.AVG_RIGHT_PCO);
-        f.setValue(avgRightPco);
+        getOrAddField(Fields.AVG_RIGHT_PCO).setValue(avgRightPco);
     }
 
     /**
      * @return
      */
     public Integer getAvgLeftPowerPhase() {
-        final Number value = getFieldToNumber(Fields.AVG_LEFT_POWER_PHASE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_LEFT_POWER_PHASE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgLeftPowerPhase
      */
     public void setAvgLeftPowerPhase(final Integer avgLeftPowerPhase) {
-        final Field<?> f = getOrAddField(Fields.AVG_LEFT_POWER_PHASE);
-        f.setValue(avgLeftPowerPhase);
+        getOrAddField(Fields.AVG_LEFT_POWER_PHASE).setValue(avgLeftPowerPhase);
     }
 
     /**
      * @return
      */
     public Integer getAvgLeftPowerPhasePeak() {
-        final Number value = getFieldToNumber(Fields.AVG_LEFT_POWER_PHASE_PEAK);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_LEFT_POWER_PHASE_PEAK).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgLeftPowerPhasePeak
      */
     public void setAvgLeftPowerPhasePeak(final Integer avgLeftPowerPhasePeak) {
-        final Field<?> f = getOrAddField(Fields.AVG_LEFT_POWER_PHASE_PEAK);
-        f.setValue(avgLeftPowerPhasePeak);
+        getOrAddField(Fields.AVG_LEFT_POWER_PHASE_PEAK).setValue(avgLeftPowerPhasePeak);
     }
 
     /**
      * @return
      */
     public Integer getAvgRightPowerPhase() {
-        final Number value = getFieldToNumber(Fields.AVG_RIGHT_POWER_PHASE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_RIGHT_POWER_PHASE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgRightPowerPhase
      */
     public void setAvgRightPowerPhase(final Integer avgRightPowerPhase) {
-        final Field<?> f = getOrAddField(Fields.AVG_RIGHT_POWER_PHASE);
-        f.setValue(avgRightPowerPhase);
+        getOrAddField(Fields.AVG_RIGHT_POWER_PHASE).setValue(avgRightPowerPhase);
     }
 
     /**
      * @return
      */
     public Integer getAvgRightPowerPhasePeak() {
-        final Number value = getFieldToNumber(Fields.AVG_RIGHT_POWER_PHASE_PEAK);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_RIGHT_POWER_PHASE_PEAK).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgRightPowerPhasePeak
      */
     public void setAvgRightPowerPhasePeak(final Integer avgRightPowerPhasePeak) {
-        final Field<?> f = getOrAddField(Fields.AVG_RIGHT_POWER_PHASE_PEAK);
-        f.setValue(avgRightPowerPhasePeak);
+        getOrAddField(Fields.AVG_RIGHT_POWER_PHASE_PEAK).setValue(avgRightPowerPhasePeak);
     }
 
     /**
      * @return
      */
     public Integer getAvgPowerPosition() {
-        final Number value = getFieldToNumber(Fields.AVG_POWER_POSITION);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_POWER_POSITION).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgPowerPosition
      */
     public void setAvgPowerPosition(final Integer avgPowerPosition) {
-        final Field<?> f = getOrAddField(Fields.AVG_POWER_POSITION);
-        f.setValue(avgPowerPosition);
+        getOrAddField(Fields.AVG_POWER_POSITION).setValue(avgPowerPosition);
     }
 
     /**
      * @return
      */
     public Integer getMaxPowerPosition() {
-        final Number value = getFieldToNumber(Fields.MAX_POWER_POSITION);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MAX_POWER_POSITION).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param maxPowerPosition
      */
     public void setMaxPowerPosition(final Integer maxPowerPosition) {
-        final Field<?> f = getOrAddField(Fields.MAX_POWER_POSITION);
-        f.setValue(maxPowerPosition);
+        getOrAddField(Fields.MAX_POWER_POSITION).setValue(maxPowerPosition);
     }
 
     /**
      * @return
      */
     public Integer getAvgCadencePosition() {
-        final Number value = getFieldToNumber(Fields.AVG_CADENCE_POSITION);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_CADENCE_POSITION).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgCadencePosition
      */
     public void setAvgCadencePosition(final Integer avgCadencePosition) {
-        final Field<?> f = getOrAddField(Fields.AVG_CADENCE_POSITION);
-        f.setValue(avgCadencePosition);
+        getOrAddField(Fields.AVG_CADENCE_POSITION).setValue(avgCadencePosition);
     }
 
     /**
      * @return
      */
     public Integer getMaxCadencePosition() {
-        final Number value = getFieldToNumber(Fields.MAX_CADENCE_POSITION);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MAX_CADENCE_POSITION).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param maxCadencePosition
      */
     public void setMaxCadencePosition(final Integer maxCadencePosition) {
-        final Field<?> f = getOrAddField(Fields.MAX_CADENCE_POSITION);
-        f.setValue(maxCadencePosition);
+        getOrAddField(Fields.MAX_CADENCE_POSITION).setValue(maxCadencePosition);
     }
 
     /**
      * @return
      */
     public Long getEnhancedAvgSpeed() {
-        final Number value = getFieldToNumber(Fields.ENHANCED_AVG_SPEED);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.ENHANCED_AVG_SPEED).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param enhancedAvgSpeed
      */
     public void setEnhancedAvgSpeed(final Long enhancedAvgSpeed) {
-        final Field<?> f = getOrAddField(Fields.ENHANCED_AVG_SPEED);
-        f.setValue(enhancedAvgSpeed);
+        getOrAddField(Fields.ENHANCED_AVG_SPEED).setValue(enhancedAvgSpeed);
     }
 
     /**
      * @return
      */
     public Long getEnhancedMaxSpeed() {
-        final Number value = getFieldToNumber(Fields.ENHANCED_MAX_SPEED);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.ENHANCED_MAX_SPEED).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param enhancedMaxSpeed
      */
     public void setEnhancedMaxSpeed(final Long enhancedMaxSpeed) {
-        final Field<?> f = getOrAddField(Fields.ENHANCED_MAX_SPEED);
-        f.setValue(enhancedMaxSpeed);
+        getOrAddField(Fields.ENHANCED_MAX_SPEED).setValue(enhancedMaxSpeed);
     }
 
     /**
      * @return
      */
     public Long getEnhancedAvgAltitude() {
-        final Number value = getFieldToNumber(Fields.ENHANCED_AVG_ALTITUDE);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.ENHANCED_AVG_ALTITUDE).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param enhancedAvgAltitude
      */
     public void setEnhancedAvgAltitude(final Long enhancedAvgAltitude) {
-        final Field<?> f = getOrAddField(Fields.ENHANCED_AVG_ALTITUDE);
-        f.setValue(enhancedAvgAltitude);
+        getOrAddField(Fields.ENHANCED_AVG_ALTITUDE).setValue(enhancedAvgAltitude);
     }
 
     /**
      * @return
      */
     public Long getEnhancedMinAltitude() {
-        final Number value = getFieldToNumber(Fields.ENHANCED_MIN_ALTITUDE);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.ENHANCED_MIN_ALTITUDE).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param enhancedMinAltitude
      */
     public void setEnhancedMinAltitude(final Long enhancedMinAltitude) {
-        final Field<?> f = getOrAddField(Fields.ENHANCED_MIN_ALTITUDE);
-        f.setValue(enhancedMinAltitude);
+        getOrAddField(Fields.ENHANCED_MIN_ALTITUDE).setValue(enhancedMinAltitude);
     }
 
     /**
      * @return
      */
     public Long getEnhancedMaxAltitude() {
-        final Number value = getFieldToNumber(Fields.ENHANCED_MAX_ALTITUDE);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.ENHANCED_MAX_ALTITUDE).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param enhancedMaxAltitude
      */
     public void setEnhancedMaxAltitude(final Long enhancedMaxAltitude) {
-        final Field<?> f = getOrAddField(Fields.ENHANCED_MAX_ALTITUDE);
-        f.setValue(enhancedMaxAltitude);
+        getOrAddField(Fields.ENHANCED_MAX_ALTITUDE).setValue(enhancedMaxAltitude);
     }
 
     /**
      * @return
      */
     public Integer getAvgLevMotorPower() {
-        final Number value = getFieldToNumber(Fields.AVG_LEV_MOTOR_POWER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.AVG_LEV_MOTOR_POWER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param avgLevMotorPower
      */
     public void setAvgLevMotorPower(final Integer avgLevMotorPower) {
-        final Field<?> f = getOrAddField(Fields.AVG_LEV_MOTOR_POWER);
-        f.setValue(avgLevMotorPower);
+        getOrAddField(Fields.AVG_LEV_MOTOR_POWER).setValue(avgLevMotorPower);
     }
 
     /**
      * @return
      */
     public Integer getMaxLevMotorPower() {
-        final Number value = getFieldToNumber(Fields.MAX_LEV_MOTOR_POWER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MAX_LEV_MOTOR_POWER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param maxLevMotorPower
      */
     public void setMaxLevMotorPower(final Integer maxLevMotorPower) {
-        final Field<?> f = getOrAddField(Fields.MAX_LEV_MOTOR_POWER);
-        f.setValue(maxLevMotorPower);
+        getOrAddField(Fields.MAX_LEV_MOTOR_POWER).setValue(maxLevMotorPower);
     }
 
     /**
      * @return
      */
     public Integer getLevBatteryConsumption() {
-        final Number value = getFieldToNumber(Fields.LEV_BATTERY_CONSUMPTION);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.LEV_BATTERY_CONSUMPTION).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param levBatteryConsumption
      */
     public void setLevBatteryConsumption(final Integer levBatteryConsumption) {
-        final Field<?> f = getOrAddField(Fields.LEV_BATTERY_CONSUMPTION);
-        f.setValue(levBatteryConsumption);
+        getOrAddField(Fields.LEV_BATTERY_CONSUMPTION).setValue(levBatteryConsumption);
     }
 
 }
