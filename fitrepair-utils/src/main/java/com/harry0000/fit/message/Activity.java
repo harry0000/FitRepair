@@ -1,6 +1,5 @@
 package com.harry0000.fit.message;
 
-import com.harry0000.fit.field.Field;
 import com.harry0000.fit.vo.BaseType;
 import com.harry0000.fit.vo.FitMessage;
 
@@ -64,119 +63,98 @@ public class Activity extends DataMessage {
      * @return
      */
     public Long getTotalTimerTime() {
-        final Number value = getFieldToNumber(Fields.TOTAL_TIMER_TIME);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.TOTAL_TIMER_TIME).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param totalTimerTime
      */
     public void setTotalTimerTime(final Long totalTimerTime) {
-        final Field<?> f = getOrAddField(Fields.TOTAL_TIMER_TIME);
-        f.setValue(totalTimerTime);
+        getOrAddField(Fields.TOTAL_TIMER_TIME).setValue(totalTimerTime);
     }
 
     /**
      * @return
      */
     public Integer getNumSessions() {
-        final Number value = getFieldToNumber(Fields.NUM_SESSIONS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.NUM_SESSIONS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param numSessions
      */
     public void setNumSessions(final Integer numSessions) {
-        final Field<?> f = getOrAddField(Fields.NUM_SESSIONS);
-        f.setValue(numSessions);
+        getOrAddField(Fields.NUM_SESSIONS).setValue(numSessions);
     }
 
     /**
      * @return
      */
     public Integer getActivityType() {
-        final Number value = getFieldToNumber(Fields.ACTIVITY_TYPE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.ACTIVITY_TYPE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param activityType
      */
     public void setActivityType(final Integer activityType) {
-        final Field<?> f = getOrAddField(Fields.ACTIVITY_TYPE);
-        f.setValue(activityType);
+        getOrAddField(Fields.ACTIVITY_TYPE).setValue(activityType);
     }
 
     /**
      * @return
      */
     public Integer getEvent() {
-        final Number value = getFieldToNumber(Fields.EVENT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.EVENT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param event
      */
     public void setEvent(final Integer event) {
-        final Field<?> f = getOrAddField(Fields.EVENT);
-        f.setValue(event);
+        getOrAddField(Fields.EVENT).setValue(event);
     }
 
     /**
      * @return
      */
     public Integer getEventType() {
-        final Number value = getFieldToNumber(Fields.EVENT_TYPE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.EVENT_TYPE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param eventType
      */
     public void setEventType(final Integer eventType) {
-        final Field<?> f = getOrAddField(Fields.EVENT_TYPE);
-        f.setValue(eventType);
+        getOrAddField(Fields.EVENT_TYPE).setValue(eventType);
     }
 
     /**
      * @return
      */
     public Long getLocalTimestamp() {
-        final Number value = getFieldToNumber(Fields.LOCAL_TIMESTAMP);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.LOCAL_TIMESTAMP).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param localTimestamp
      */
     public void setLocalTimestamp(final Long localTimestamp) {
-        final Field<?> f = getOrAddField(Fields.LOCAL_TIMESTAMP);
-        f.setValue(localTimestamp);
+        getOrAddField(Fields.LOCAL_TIMESTAMP).setValue(localTimestamp);
     }
 
     /**
      * @return
      */
     public Integer getEventGroup() {
-        final Number value = getFieldToNumber(Fields.EVENT_GROUP);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.EVENT_GROUP).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param eventGroup
      */
     public void setEventGroup(final Integer eventGroup) {
-        final Field<?> f = getOrAddField(Fields.EVENT_GROUP);
-        f.setValue(eventGroup);
+        getOrAddField(Fields.EVENT_GROUP).setValue(eventGroup);
     }
 
 }

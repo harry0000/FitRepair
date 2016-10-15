@@ -12,9 +12,9 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import com.harry0000.fit.CRC;
 import com.harry0000.fit.Reader;
 import com.harry0000.fit.Writer;
+import com.harry0000.fit.message.DataMessage;
 import com.harry0000.fit.message.Record;
 import com.harry0000.fit.vo.FileType;
 
@@ -62,10 +63,10 @@ public class Repair {
             return false;
         }
 
-        final Set<Long> targetTimestamps = new HashSet<>(invalids.size());
-        for (final Record r : invalids) {
-            targetTimestamps.add(r.getTimestamp());
-        }
+        final Set<Long> targetTimestamps =
+            invalids.stream()
+                .map(DataMessage::getTimestamp)
+                .collect(Collectors.toSet());
 
         final boolean result;
         final Reader reader = new Reader();
@@ -184,8 +185,8 @@ public class Repair {
                 });
             reader.getDispatcher().setSessionListener(
                 (defMsg, msg) -> {
-                    final Integer maxPower = lapMaxPower.stream().reduce(Math::max).get();
-                    final Long recordCount = lapPowerDataCount.stream().reduce(Long::sum).get();
+                    final Integer maxPower = lapMaxPower.stream().reduce(Math::max).orElse(0);
+                    final Long recordCount = lapPowerDataCount.stream().reduce(Long::sum).orElse(0L);
 
                     final int avgPower = recordCount != 0 ?
                                              (int)Math.round((double) accumulated / recordCount) :

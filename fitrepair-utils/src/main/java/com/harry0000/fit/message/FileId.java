@@ -1,6 +1,5 @@
 package com.harry0000.fit.message;
 
-import com.harry0000.fit.field.Field;
 import com.harry0000.fit.vo.BaseType;
 import com.harry0000.fit.vo.FitMessage;
 
@@ -64,115 +63,98 @@ public class FileId extends DataMessage {
      * @return
      */
     public Integer getFileType() {
-        final Number value = getFieldToNumber(Fields.FILE_TYPE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.FILE_TYPE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param fileType
      */
     public void setFileType(final Integer fileType) {
-        final Field<?> f = getOrAddField(Fields.FILE_TYPE);
-        f.setValue(fileType);
+        getOrAddField(Fields.FILE_TYPE).setValue(fileType);
     }
 
     /**
      * @return
      */
     public Integer getManufacturer() {
-        final Number value = getFieldToNumber(Fields.MANUFACTURER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MANUFACTURER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param manufacturer
      */
     public void setManufacturer(final Integer manufacturer) {
-        final Field<?> f = getOrAddField(Fields.MANUFACTURER);
-        f.setValue(manufacturer);
+        getOrAddField(Fields.MANUFACTURER).setValue(manufacturer);
     }
 
     /**
      * @return
      */
     public Integer getProduct() {
-        final Number value = getFieldToNumber(Fields.PRODUCT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.PRODUCT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param product
      */
     public void setProduct(final Integer product) {
-        final Field<?> f = getOrAddField(Fields.PRODUCT);
-        f.setValue(product);
+        getOrAddField(Fields.PRODUCT).setValue(product);
     }
 
     /**
      * @return
      */
     public Long getSerialNumber() {
-        final Number value = getFieldToNumber(Fields.SERIAL_NUMBER);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.SERIAL_NUMBER).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param serialNumber
      */
     public void setSerialNumber(final Long serialNumber) {
-        final Field<?> f = getOrAddField(Fields.SERIAL_NUMBER);
-        f.setValue(serialNumber);
+        getOrAddField(Fields.SERIAL_NUMBER).setValue(serialNumber);
     }
 
     /**
      * @return
      */
     public Long getTimeCreated() {
-        return getFieldToUnixTime(Fields.TIME_CREATED);
+        return getFieldToUnixTime(Fields.TIME_CREATED).orElse(null);
     }
 
     /**
      * @param timeCreated
      */
     public void setTimeCreated(final Long timeCreated) {
-        final Field<?> f = getOrAddField(Fields.TIME_CREATED);
-        f.setValue(toFitTimestamp(timeCreated));
+        getOrAddField(Fields.TIME_CREATED).setValue(toFitTimestamp(timeCreated).orElse(null));
     }
 
     /**
      * @return
      */
     public Integer getNumber() {
-        final Number value = getFieldToNumber(Fields.NUMBER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.NUMBER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param number
      */
     public void setNumber(final Integer number) {
-        final Field<?> f = getOrAddField(Fields.NUMBER);
-        f.setValue(number);
+        getOrAddField(Fields.NUMBER).setValue(number);
     }
 
     /**
      * @return
      */
     public String getProductName() {
-        return getFieldToString(Fields.PRODUCT_NAME);
+        return getFieldToString(Fields.PRODUCT_NAME).orElse(null);
     }
 
     /**
      * @param productName
      */
     public void setProductName(final String productName) {
-        final Field<?> f = getOrAddField(Fields.PRODUCT_NAME);
-        f.setValue(productName);
+        getOrAddField(Fields.PRODUCT_NAME).setValue(productName);
     }
 
 }

@@ -1,6 +1,5 @@
 package com.harry0000.fit.message;
 
-import com.harry0000.fit.field.Field;
 import com.harry0000.fit.vo.BaseType;
 import com.harry0000.fit.vo.FitMessage;
 
@@ -74,285 +73,238 @@ public class DeviceInfo extends DataMessage {
      * @return
      */
     public Integer getDeviceIndex() {
-        final Number value = getFieldToNumber(Fields.DEVICE_INDEX);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.DEVICE_INDEX).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param deviceIndex
      */
     public void setDeviceIndex(final Integer deviceIndex) {
-        final Field<?> f = getOrAddField(Fields.DEVICE_INDEX);
-        f.setValue(deviceIndex);
+        getOrAddField(Fields.DEVICE_INDEX).setValue(deviceIndex);
     }
 
     /**
      * @return
      */
     public Integer getDeviceType() {
-        final Number value = getFieldToNumber(Fields.DEVICE_TYPE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.DEVICE_TYPE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param deviceType
      */
     public void setDeviceType(final Integer deviceType) {
-        final Field<?> f = getOrAddField(Fields.DEVICE_TYPE);
-        f.setValue(deviceType);
+        getOrAddField(Fields.DEVICE_TYPE).setValue(deviceType);
     }
 
     /**
      * @return
      */
     public Integer getManufacturer() {
-        final Number value = getFieldToNumber(Fields.MANUFACTURER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.MANUFACTURER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param manufacturer
      */
     public void setManufacturer(final Integer manufacturer) {
-        final Field<?> f = getOrAddField(Fields.MANUFACTURER);
-        f.setValue(manufacturer);
+        getOrAddField(Fields.MANUFACTURER).setValue(manufacturer);
     }
 
     /**
      * @return
      */
     public Long getSerialNumber() {
-        final Number value = getFieldToNumber(Fields.SERIAL_NUMBER);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.SERIAL_NUMBER).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param serialNumber
      */
     public void setSerialNumber(final Long serialNumber) {
-        final Field<?> f = getOrAddField(Fields.SERIAL_NUMBER);
-        f.setValue(serialNumber);
+        getOrAddField(Fields.SERIAL_NUMBER).setValue(serialNumber);
     }
 
     /**
      * @return
      */
     public Integer getProduct() {
-        final Number value = getFieldToNumber(Fields.PRODUCT);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.PRODUCT).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param product
      */
     public void setProduct(final Integer product) {
-        final Field<?> f = getOrAddField(Fields.PRODUCT);
-        f.setValue(product);
+        getOrAddField(Fields.PRODUCT).setValue(product);
     }
 
     /**
      * @return
      */
     public Integer getSoftwareVersion() {
-        final Number value = getFieldToNumber(Fields.SOFTWARE_VERSION);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SOFTWARE_VERSION).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param softwareVersion
      */
     public void setSoftwareVersion(final Integer softwareVersion) {
-        final Field<?> f = getOrAddField(Fields.SOFTWARE_VERSION);
-        f.setValue(softwareVersion);
+        getOrAddField(Fields.SOFTWARE_VERSION).setValue(softwareVersion);
     }
 
     /**
      * @return
      */
     public Integer getHardwareVersion() {
-        final Number value = getFieldToNumber(Fields.HARDWARE_VERSION);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.HARDWARE_VERSION).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param hardwareVersion
      */
     public void setHardwareVersion(final Integer hardwareVersion) {
-        final Field<?> f = getOrAddField(Fields.HARDWARE_VERSION);
-        f.setValue(hardwareVersion);
+        getOrAddField(Fields.HARDWARE_VERSION).setValue(hardwareVersion);
     }
 
     /**
      * @return
      */
     public Long getCumOperatingTime() {
-        final Number value = getFieldToNumber(Fields.CUM_OPERATING_TIME);
-
-        return value != null ? value.longValue() : null;
+        return getFieldToNumber(Fields.CUM_OPERATING_TIME).map(Number::longValue).orElse(null);
     }
 
     /**
      * @param cumOperatingTime
      */
     public void setCumOperatingTime(final Long cumOperatingTime) {
-        final Field<?> f = getOrAddField(Fields.CUM_OPERATING_TIME);
-        f.setValue(cumOperatingTime);
+        getOrAddField(Fields.CUM_OPERATING_TIME).setValue(cumOperatingTime);
     }
 
     /**
      * @return
      */
     public Integer getBatteryVoltage() {
-        final Number value = getFieldToNumber(Fields.BATTERY_VOLTAGE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.BATTERY_VOLTAGE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param batteryVoltage
      */
     public void setBatteryVoltage(final Integer batteryVoltage) {
-        final Field<?> f = getOrAddField(Fields.BATTERY_VOLTAGE);
-        f.setValue(batteryVoltage);
+        getOrAddField(Fields.BATTERY_VOLTAGE).setValue(batteryVoltage);
     }
 
     /**
      * @return
      */
     public Integer getBatteryStatus() {
-        final Number value = getFieldToNumber(Fields.BATTERY_STATUS);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.BATTERY_STATUS).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param batteryStatus
      */
     public void setBatteryStatus(final Integer batteryStatus) {
-        final Field<?> f = getOrAddField(Fields.BATTERY_STATUS);
-        f.setValue(batteryStatus);
+        getOrAddField(Fields.BATTERY_STATUS).setValue(batteryStatus);
     }
 
     /**
      * @return
      */
     public Integer getSensorPosition() {
-        final Number value = getFieldToNumber(Fields.SENSOR_POSITION);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SENSOR_POSITION).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param sensorPosition
      */
     public void setSensorPosition(final Integer sensorPosition) {
-        final Field<?> f = getOrAddField(Fields.SENSOR_POSITION);
-        f.setValue(sensorPosition);
+        getOrAddField(Fields.SENSOR_POSITION).setValue(sensorPosition);
     }
 
     /**
      * @return
      */
     public String getDescriptor() {
-        return getFieldToString(Fields.DESCRIPTOR);
+        return getFieldToString(Fields.DESCRIPTOR).orElse(null);
     }
 
     /**
      * @param descriptor
      */
     public void setDescriptor(final String descriptor) {
-        final Field<?> f = getOrAddField(Fields.DESCRIPTOR);
-        f.setValue(descriptor);
+        getOrAddField(Fields.DESCRIPTOR).setValue(descriptor);
     }
 
     /**
      * @return
      */
     public Integer getAntTransmissionType() {
-        final Number value = getFieldToNumber(Fields.ANT_TRANSMISSION_TYPE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.ANT_TRANSMISSION_TYPE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param antTransmissionType
      */
     public void setAntTransmissionType(final Integer antTransmissionType) {
-        final Field<?> f = getOrAddField(Fields.ANT_TRANSMISSION_TYPE);
-        f.setValue(antTransmissionType);
+        getOrAddField(Fields.ANT_TRANSMISSION_TYPE).setValue(antTransmissionType);
     }
 
     /**
      * @return
      */
     public Integer getAntDeviceNumber() {
-        final Number value = getFieldToNumber(Fields.ANT_DEVICE_NUMBER);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.ANT_DEVICE_NUMBER).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param antDeviceNumber
      */
     public void setAntDeviceNumber(final Integer antDeviceNumber) {
-        final Field<?> f = getOrAddField(Fields.ANT_DEVICE_NUMBER);
-        f.setValue(antDeviceNumber);
+        getOrAddField(Fields.ANT_DEVICE_NUMBER).setValue(antDeviceNumber);
     }
 
     /**
      * @return
      */
     public Integer getAntNetwork() {
-        final Number value = getFieldToNumber(Fields.ANT_NETWORK);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.ANT_NETWORK).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param antNetwork
      */
     public void setAntNetwork(final Integer antNetwork) {
-        final Field<?> f = getOrAddField(Fields.ANT_NETWORK);
-        f.setValue(antNetwork);
+        getOrAddField(Fields.ANT_NETWORK).setValue(antNetwork);
     }
 
     /**
      * @return
      */
     public Integer getSourceType() {
-        final Number value = getFieldToNumber(Fields.SOURCE_TYPE);
-
-        return value != null ? value.intValue() : null;
+        return getFieldToNumber(Fields.SOURCE_TYPE).map(Number::intValue).orElse(null);
     }
 
     /**
      * @param sourceType
      */
     public void setSourceType(final Integer sourceType) {
-        final Field<?> f = getOrAddField(Fields.SOURCE_TYPE);
-        f.setValue(sourceType);
+        getOrAddField(Fields.SOURCE_TYPE).setValue(sourceType);
     }
 
     /**
      * @return
      */
     public String getProductName() {
-        return getFieldToString(Fields.PRODUCT_NAME);
+        return getFieldToString(Fields.PRODUCT_NAME).orElse(null);
     }
 
     /**
      * @param productName
      */
     public void setProductName(final String productName) {
-        final Field<?> f = getOrAddField(Fields.PRODUCT_NAME);
-        f.setValue(productName);
+        getOrAddField(Fields.PRODUCT_NAME).setValue(productName);
     }
 
 }

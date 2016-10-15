@@ -90,14 +90,15 @@ public class Writer {
 
         final List<Field<?>> fields = new ArrayList<>(defMsg.getFields().size());
         for (final FieldDefinition fieldDef : defMsg.getFields()) {
-            final Field<?> field = msg.getField(fieldDef.getDefinitionNumber());
-            if (field == null) {
-                throw new FitRuntimeException(
-                          "Couldn't find the defined field." +
-                          " message header: 0x" + Integer.toHexString(msg.getHeader()) +
-                          ", definition number: " + fieldDef.getDefinitionNumber()
-                      );
-            }
+            final Field<?> field =
+                msg.getFieldOpt(fieldDef.getDefinitionNumber())
+                    .orElseThrow(() ->
+                        new FitRuntimeException(
+                            "Couldn't find the defined field." +
+                            " message header: 0x" + Integer.toHexString(msg.getHeader()) +
+                            ", definition number: " + fieldDef.getDefinitionNumber()
+                        )
+                    );
             fields.add(field);
         }
 
