@@ -162,7 +162,7 @@ public class Repair {
 
                     logger.info("---   Lap   ---");
                     logger.info("Record Count    : {}", powerDataCount);
-                    logger.info("SumPower        : {} (-{})", sumPower, accumulatedInvalid - lastAccumulatedInvalid);
+                    logger.info("SumPower        : {} ({})", sumPower, lastAccumulatedInvalid - accumulatedInvalid);
                     logger.info("AvgPower        : {}", msg.getAvgPower());
                     logger.info("MaxPower        : {}", msg.getMaxPower());
                     logger.info("NormalizedPower : {}", msg.getNormalizedPower());
@@ -196,7 +196,7 @@ public class Repair {
 
                     logger.info("--- Session ---");
                     logger.info("Record Count    : {}", recordCount);
-                    logger.info("SumPower        : {} (-{})", accumulated, accumulatedInvalid);
+                    logger.info("SumPower        : {} ({})", accumulated, -accumulatedInvalid);
                     logger.info("AvgPower        : {}", msg.getAvgPower());
                     logger.info("MaxPower        : {}", msg.getMaxPower());
                     logger.info("NormalizedPower : {}", msg.getNormalizedPower());
