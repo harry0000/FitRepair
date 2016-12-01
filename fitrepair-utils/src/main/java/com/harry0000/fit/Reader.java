@@ -33,7 +33,7 @@ public class Reader {
      * @param fitFile
      * @return
      */
-    public static boolean isVaild(final Path fitFile) {
+    public static boolean isValid(final Path fitFile) {
         final InputStream in;
         try {
             in = Files.newInputStream(fitFile);

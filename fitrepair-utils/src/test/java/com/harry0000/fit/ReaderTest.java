@@ -12,9 +12,9 @@ import org.junit.Test;
 public class ReaderTest {
 
     @Test
-    public void isVaild() throws URISyntaxException {
+    public void isValid() throws URISyntaxException {
         assertThat(
-            Reader.isVaild(Paths.get(getClass().getResource("Activity.fit").toURI())),
+            Reader.isValid(Paths.get(getClass().getResource("Activity.fit").toURI())),
             is(true)
         );
     }

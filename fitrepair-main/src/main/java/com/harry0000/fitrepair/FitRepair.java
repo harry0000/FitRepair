@@ -41,7 +41,7 @@ public class FitRepair {
     public static void main(final String[] args) {
         for (final String arg : args) {
             final Path fitFile = Paths.get(arg);
-            if (!Reader.isVaild(fitFile)) {
+            if (!Reader.isValid(fitFile)) {
                 logger.warn("Ignore invalid fit file: \"{}\"", arg);
                 continue;
             }
