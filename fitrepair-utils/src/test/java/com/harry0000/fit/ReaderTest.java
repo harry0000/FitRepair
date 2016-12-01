@@ -3,20 +3,18 @@ package com.harry0000.fit;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.nio.file.Paths;
 
 import org.junit.Test;
-
-import com.harry0000.fit.Reader;
 
 public class ReaderTest {
 
     @Test
     public void isVaild() throws URISyntaxException {
         assertThat(
-            Reader.isVaild(new File(getClass().getResource("Activity.fit").toURI())),
+            Reader.isVaild(Paths.get(getClass().getResource("Activity.fit").toURI())),
             is(true)
         );
     }

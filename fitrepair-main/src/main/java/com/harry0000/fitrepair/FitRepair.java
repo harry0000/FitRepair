@@ -1,7 +1,7 @@
 package com.harry0000.fitrepair;
 
-import java.io.File;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -15,32 +15,24 @@ public class FitRepair {
     private static final String DEST_FILE_SUFFIX = "_repair";
 
     /**
-     * @param srcFile
+     * @param srcPath
      * @return
      */
-    protected static String GetDestFilePath(final File srcFile) {
-        final Path srcPath = srcFile.toPath();
+    protected static Path getDestFilePath(final Path srcPath) {
         final String name = srcPath.getFileName().toString();
         final int idx = name.indexOf('.');
+        final String destFileName;
         if (idx < 0) {
-            return srcFile.getPath() + DEST_FILE_SUFFIX;
+            destFileName = name + DEST_FILE_SUFFIX;
+        } else {
+            destFileName = new StringBuilder(name.length() + DEST_FILE_SUFFIX.length())
+              .append(name.substring(0, idx))
+              .append(DEST_FILE_SUFFIX)
+              .append(name.substring(idx))
+              .toString();
         }
 
-        final StringBuilder sb = new StringBuilder();
-        final Path parent = srcPath.getParent();
-        if (parent != null) {
-            final String path = parent.toString();
-            sb.append(path);
-            if (!"\\".equals(path)) {
-                sb.append('\\');
-            }
-        }
-
-        sb.append(name.substring(0, idx))
-          .append(DEST_FILE_SUFFIX)
-          .append(name.substring(idx));
-
-        return sb.toString();
+        return srcPath.resolveSibling(destFileName);
     }
 
     /**
@@ -48,14 +40,14 @@ public class FitRepair {
      */
     public static void main(final String[] args) {
         for (final String arg : args) {
-            final File fitFile = new File(arg);
+            final Path fitFile = Paths.get(arg);
             if (!Reader.isVaild(fitFile)) {
                 logger.warn("Ignore invalid fit file: \"{}\"", arg);
                 continue;
             }
 
             final List<Record> invalids = new Checker().check(fitFile);
-            final boolean result = new Repair().repair(fitFile, new File(GetDestFilePath(fitFile)), invalids);
+            final boolean result = new Repair().repair(fitFile, getDestFilePath(fitFile), invalids);
             logger.debug("Power repair result = {}", result);
         }
     }

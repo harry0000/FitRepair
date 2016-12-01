@@ -3,13 +3,12 @@ package com.harry0000.fitrepair;
 import static com.harry0000.fit.message.Record.Fields.ACCUMULATED_POWER;
 import static com.harry0000.fit.message.Record.Fields.POWER;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.RandomAccessFile;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -55,8 +54,8 @@ public class Repair {
      * @param invalids
      * @return
      */
-    public boolean repair(final File fitFile,
-                          final File repairedFile,
+    public boolean repair(final Path fitFile,
+                          final Path repairedFile,
                           final List<Record> invalids) {
         if (invalids == null || invalids.isEmpty()) {
             logger.warn("No Invalid power datas.");
@@ -70,8 +69,8 @@ public class Repair {
 
         final boolean result;
         final Reader reader = new Reader();
-        try (final InputStream in = new FileInputStream(fitFile);
-             final OutputStream out = new FileOutputStream(repairedFile)) {
+        try (final InputStream in = Files.newInputStream(fitFile);
+             final OutputStream out = Files.newOutputStream(repairedFile)) {
             reader.getDispatcher().setHeaderLintener(
                 (header) -> {
                     try {
@@ -234,7 +233,7 @@ public class Repair {
         }
 
         // Write CRC.
-        try (final RandomAccessFile dest = new RandomAccessFile(repairedFile, "rw")) {
+        try (final RandomAccessFile dest = new RandomAccessFile(repairedFile.toFile(), "rw")) {
             final CRC crc = new CRC();
             int data;
             while ((data = dest.read()) > -1) {

@@ -2,10 +2,10 @@ package com.harry0000.fitrepair;
 
 import static com.harry0000.fit.message.Record.Fields.POWER;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -35,7 +35,7 @@ public class Checker {
      * @param fitFile
      * @return
      */
-    public List<Record> check(final File fitFile) {
+    public List<Record> check(final Path fitFile) {
         final List<Record> invalids = new ArrayList<>();
 
         final Reader reader = new Reader();
@@ -84,7 +84,7 @@ public class Checker {
             });
 
         final boolean result;
-        try (final InputStream in = new FileInputStream(fitFile)) {
+        try (final InputStream in = Files.newInputStream(fitFile)) {
             result = reader.read(in);
         } catch (final IOException e) {
             logger.warn("Error while reading fit file.", e);

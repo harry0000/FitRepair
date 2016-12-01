@@ -7,13 +7,12 @@ import static com.harry0000.fit.Constants.DEFINITION_MESSAGE;
 import static com.harry0000.fit.Constants.MAX_LOCAL_MESSAGE_NUMS;
 import static com.harry0000.fit.Constants.RECORD_HEADER_TYPE_MASK;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,12 +33,12 @@ public class Reader {
      * @param fitFile
      * @return
      */
-    public static boolean isVaild(final File fitFile) {
+    public static boolean isVaild(final Path fitFile) {
         final InputStream in;
         try {
-            in = new FileInputStream(fitFile);
-        } catch (final FileNotFoundException e) {
-            logger.info("Fit file does not exist.", e);
+            in = Files.newInputStream(fitFile);
+        } catch (final IOException | SecurityException e) {
+            logger.info("Could not open fit file.", e);
             return false;
         }
 
